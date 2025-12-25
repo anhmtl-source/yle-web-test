@@ -1,0 +1,1989 @@
+/* ==== RESET CƠ BẢN ==== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f3f4fb;
+  color: #111827;
+}
+
+/* ==== KHUNG CHUNG ==== */
+.exam-shell {
+  max-width: 900px;
+  margin: 12px auto 20px;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.17);
+  padding: 24px 32px 32px;
+}
+
+/* HEADER */
+.exam-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #e5e7eb;
+}
+.exam-title-block {
+  flex: 1;
+}
+
+.exam-title-block h1 {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.exam-title-block p {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* Đồng hồ 3D */
+.timer-3d {
+  width: 80px;
+  height: 80px;
+  perspective: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timer-3d-inner {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #ffffff, #e5e7eb);
+  box-shadow:
+    0 10px 25px rgba(15, 23, 42, 0.25),
+    inset 0 4px 8px rgba(255, 255, 255, 0.9),
+    inset 0 -4px 8px rgba(148, 163, 184, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotateX(10deg);
+}
+
+.timer-3d-face {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #f9fafb, #e0e7ff);
+  box-shadow:
+    0 0 0 2px rgba(255, 255, 255, 0.8),
+    inset 0 2px 4px rgba(148, 163, 184, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timer-3d-face span {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  font-size: 14px;
+  color: #111827;
+}
+
+.student-info label {
+  display: block;
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 6px;
+}
+
+.student-info input {
+  width: 100%;
+  padding: 6px 8px;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  font-size: 13px;
+}
+
+.exam-title-block h1 {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.exam-title-block p {
+  font-size: 13px;
+  text-align: center;
+  color: #6b7280;
+}
+
+.timer-box {
+  text-align: right;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* NAV PARTS */
+.part-nav {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin: 12px 0 8px;
+}
+
+.part-nav button {
+  border-radius: 999px;
+  border: none;
+  padding: 6px 18px;
+  font-size: 13px;
+  cursor: pointer;
+  background: #eef2ff;
+  color: #4f46e5;
+  transition: 0.15s ease;
+}
+
+.part-nav button.active {
+  background: #4f46e5;
+  color: #ffffff;
+}
+
+/* PANEL CHUNG */
+.part-panel {
+  margin-top: 16px;
+}
+
+.part-panel.hidden {
+  display: none;
+}
+
+.part-panel h2 {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.part-panel p {
+  font-size: 14px;
+  color: #4b5563;
+  margin-bottom: 10px;
+}
+
+/* ==== AUDIO BAR TÍM (giống mẫu em gửi) ==== */
+.yl-audio-player {
+  margin: 5px 0 9px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #e6ddff;
+  padding: 3px 5px;
+  border-radius: 999px;
+}
+
+.yl-play-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  border: none;
+  background: #fbbf24;
+  position: relative;
+  cursor: pointer;
+}
+
+.yl-play-btn::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 6px;
+  border-style: solid;
+  border-width: 6px 0 6px 9px;
+  border-color: transparent transparent transparent #1f2937;
+}
+
+.yl-play-btn.paused::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 5px;
+  width: 3px;
+  height: 14px;
+  background: #1f2937;
+  box-shadow: 6px 0 0 #1f2937;
+  border: none;
+}
+
+.yl-time {
+  font-size: 11px;
+  color: #4b5563;
+  min-width: 70px;
+}
+
+.yl-bar {
+  flex: 1;
+  height: 8px;
+  border-radius: 999px;
+  background: #c4b5fd;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.yl-bar-fill {
+  height: 100%;
+  width: 0;
+  background: #1e3a8a;
+}
+
+/* ========= PART 1 ========= */
+.p1-layout {
+  display: flex;
+  gap: 24px;
+  margin-top: 8px;
+}
+
+.p1-image-wrapper {
+  position: relative;
+  flex: 3;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 12px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.14);
+}
+
+.main-img {
+  display: block;
+  width: 100%;
+  height: 90%;
+  border-radius: 12px;
+}
+
+/* vị trí tên trong tranh */
+.drop-box {
+  position: absolute;
+  min-width: 60px;
+  min-height: 22px;
+  border-radius: 999px;
+  border: 1px dashed #f97316;
+  background: rgba(255, 255, 255, 0.86);
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111827;
+}
+
+/* ngân hàng tên */
+.p1-name-bank {
+  flex: 1.6;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-content: flex-start;
+}
+
+.name-pill {
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: #e0f2fe;
+  color: #0369a1;
+  font-size: 13px;
+  cursor: grab;
+  border: 1px solid #7dd3fc;
+  user-select: none;
+}
+
+/* ========= PART 2 ========= */
+.p2-layout {
+  display: flex;
+  gap: 22px;
+  margin-top: 10px;
+}
+
+.p2-image-card {
+  flex: 3;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.14);
+}
+
+.p2-image-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.p2-questions {
+  flex: 2;
+}
+
+.p2-row {
+  margin-bottom: 10px;
+}
+
+.p2-row.example input {
+  background: #f3f4f6;
+}
+
+.p2-label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.p2-row input[type="text"] {
+  width: 100%;
+  padding: 6px 8px;
+  font-size: 13px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+}
+
+/* ========= PART 3 ========= */
+.p3-card {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+}
+
+.p3-card.example {
+  box-shadow: none;
+  border: 1px dashed #e5e7eb;
+}
+
+.p3-question-text {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.p3-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.p3-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.p3-option img {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+}
+
+.p3-radio {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+}
+/* ===== PART 3 – LISTEN & TICK (2 CỘT) ===== */
+
+.p3-layout {
+  display: flex;
+  gap: 24px;
+  margin-top: 16px;
+  align-items: flex-start;
+}
+
+.p3-example-block {
+  flex: 0 0 38%;
+}
+
+.p3-questions-block {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Card chung */
+.p3-card-example,
+.p3-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  padding: 14px 16px;
+}
+
+/* Example */
+.p3-example-title {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.p3-example-content {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.p3-example-image img {
+  display: block;
+  width: 140px;
+  max-width: 100%;
+  border-radius: 12px;
+}
+
+.p3-example-text {
+  flex: 1;
+}
+
+.p3-options-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+/* Câu hỏi 1–5 */
+.p3-question-header {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+
+.p3-number {
+  font-weight: 700;
+}
+
+.p3-question-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.p3-option {
+  position: relative;
+  cursor: pointer;
+  background: #f5f3ff;
+  border-radius: 14px;
+  padding: 6px 6px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid transparent;
+  transition: 0.15s ease;
+}
+
+.p3-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.p3-option-img img {
+  display: block;
+  width: 90px;
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.p3-option-letter {
+  margin-top: 4px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* Hiệu ứng khi chọn */
+.p3-option input[type="radio"]:checked + .p3-option-img + .p3-option-letter,
+.p3-option input[type="radio"]:checked ~ .p3-option-letter {
+  color: #4c1d95;
+}
+
+.p3-option input[type="radio"]:checked ~ .p3-option-letter,
+.p3-option input[type="radio"]:checked ~ .p3-option-img {
+  /* viền đậm khi chọn */
+}
+
+.p3-option input[type="radio"]:checked ~ .p3-option-img,
+.p3-option:hover {
+  border-color: #a855f7;
+  box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.25);
+}
+
+/* Nhỏ lại trên màn hình hẹp */
+@media (max-width: 1050px) {
+  .p3-layout {
+    flex-direction: column;
+  }
+
+  .p3-example-block {
+    flex-basis: auto;
+  }
+}
+
+/* ========= PART 4 ========= */
+.p4-layout {
+  max-width: 700px;
+  margin: 18px auto 0;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.p4-image-card {
+  flex: 3;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
+}
+
+.p4-image-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.p4-questions {
+  flex: 2;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 18px 16px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+}
+
+.p4-row {
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.p4-row.example select {
+  background: #f3f4f6;
+}
+
+.p4-label {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.p4-row select {
+  width: 100%;
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 13px;
+}
+
+/* ==== FOOTER ==== */
+.exam-footer {
+  margin-top: 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.exam-footer button {
+  border-radius: 999px;
+  border: none;
+  padding: 8px 18px;
+  font-size: 13px;
+  cursor: pointer;
+  background: #4f46e5;
+  color: #ffffff;
+}
+
+.exam-footer #btnPrev {
+  background: #6366f1;
+}
+
+.exam-footer #btnNext {
+  background: #4f46e5;
+}
+
+.exam-result {
+  font-size: 13px;
+  color: #111827;
+}
+
+.submit-row {
+  text-align: center;
+  margin-top: 12px;
+}
+
+.submit-row .primary {
+  border-radius: 999px;
+  border: none;
+  padding: 8px 22px;
+  font-size: 14px;
+  background: #16a34a;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* ==== RESPONSIVE ==== */
+@media (max-width: 840px) {
+  .exam-header {
+    grid-template-columns: 1fr;
+  }
+  .p1-layout,
+  .p2-layout,
+  .p4-layout {
+    flex-direction: column;
+  }
+}
+/* Ẩn hoàn toàn thanh tab Part 1 / Part 2 / Part 3 / Part 4 */
+.part-nav {
+  display: none !important;
+}
+/* Thanh điều hướng dưới cùng – căn giữa 2 nút */
+.bottom-nav {
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+/* Nút mũi tên 3D */
+.nav-arrow {
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  background: radial-gradient(circle at 30% 20%, #ffffff, #c4b5fd);
+  box-shadow:
+    0 10px 25px rgba(79, 70, 229, 0.45),
+    inset 0 3px 6px rgba(255, 255, 255, 0.9),
+    inset 0 -3px 6px rgba(129, 140, 248, 0.9);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    transform 0.12s ease-out,
+    box-shadow 0.12s ease-out,
+    background 0.12s ease-out;
+}
+
+/* Icon mũi tên bên trong */
+.nav-arrow .arrow-icon {
+  font-size: 30px;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(15, 23, 42, 0.6);
+  line-height: 1;
+}
+
+/* Trạng thái hover – nổi hơn một chút */
+.nav-arrow:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 14px 30px rgba(79, 70, 229, 0.55),
+    inset 0 3px 6px rgba(255, 255, 255, 0.95),
+    inset 0 -3px 8px rgba(129, 140, 248, 0.95);
+}
+
+/* Trạng thái bấm – ấn xuống */
+.nav-arrow:active {
+  transform: translateY(1px);
+  box-shadow:
+    0 6px 14px rgba(79, 70, 229, 0.45),
+    inset 0 4px 8px rgba(129, 140, 248, 1);
+}
+
+/* Nếu muốn trái / phải hơi lệch cho cảm giác hướng */
+.nav-arrow-left {
+  /* transform-origin: 60% 50%;  */ /* có thể bật nếu muốn xoay chút */
+}
+
+.nav-arrow-right {
+  /* transform-origin: 40% 50%; */
+}
+body {
+    background: linear-gradient(180deg, #FFE8B5, #FFD08A);
+}
+header {
+   .timer-3d {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(145deg, #FFFFFF, #D7CEFF);  
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #5A4CC8;
+    position: absolute;
+    right: 26px;
+    top: 26px;
+
+    box-shadow:
+        6px 6px 15px rgba(111, 91, 222, 0.25),
+        -4px -4px 10px rgba(255, 255, 255, 0.9);
+
+    border: 2px solid rgba(255,255,255,0.6);
+}
+
+}
+header {
+    background: #EEE7FF;       /* tím lavender pastel */
+    border-radius: 12px;
+    padding: 5px 20px;
+    margin: 10px auto 20px;
+    max-width: 1050px;
+    box-shadow: 0 6px 18px rgba(169,150,255,0.25); /* shadow tím pastel */
+    position: relative;
+}
+/* Bố cục chung */
+.p3-layout {
+  display: flex;
+  gap: 24px;
+  margin-top: 16px;
+  align-items: flex-start;
+}
+
+.p3-example-block {
+  flex: 0 0 35%;
+}
+
+.p3-questions-block {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 420px;          /* KHUNG BÊN PHẢI THẤP HƠN ĐỂ GỌN MÀN HÌNH */
+  overflow-y: auto;           /* Cuộn riêng phần câu hỏi */
+  padding-right: 4px;
+}
+
+/* Card */
+.p3-card-example,
+.p3-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  padding: 12px 14px;
+}
+
+/* Example */
+.p3-example-title {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.p3-example-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.p3-example-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+/* Ô đáp án A/B/C chung cho cả ví dụ & 5 câu */
+.p3-question-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.p3-option {
+  position: relative;
+  cursor: pointer;
+  background: #f5f3ff;
+  border-radius: 14px;
+  padding: 6px 6px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid transparent;
+  transition: 0.15s ease;
+}
+
+.p3-option-example {
+  cursor: default;
+}
+
+.p3-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.p3-option-img img {
+  display: block;
+  width: 80px;
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+/* Nhóm chữ + ô tick */
+.p3-letter-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.p3-bullet {
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  border: 2px solid #c4b5fd;       /* viền tím nhạt */
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.p3-option-letter {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* Khi HOVER */
+.p3-option:not(.p3-option-example):hover {
+  border-color: #a855f7;
+  box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.2);
+}
+
+/* Khi CHỌN – tô ô tròn & đậm chữ */
+.p3-option input[type="radio"]:checked ~ .p3-letter-wrap .p3-bullet {
+  background: linear-gradient(135deg, #a855f7, #6366f1);
+  border-color: transparent;
+  box-shadow: 0 0 0 2px rgba(129, 140, 248, 0.35);
+}
+
+.p3-option input[type="radio"]:checked ~ .p3-letter-wrap .p3-option-letter {
+  color: #4c1d95;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .p3-layout {
+    flex-direction: column;
+  }
+
+  .p3-example-block {
+    flex-basis: auto;
+  }
+
+  .p3-questions-block {
+    max-height: none;
+  }
+}
+/* ===== BỐ CỤC 2 CỘT ===== */
+.p3-container {
+  display: flex;
+  height: 460px;
+  margin-top: 20px;
+}
+
+/* CỘT TRÁI – CỐ ĐỊNH */
+.p3-left {
+  width: 38%;
+  padding: 18px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 140px;
+  height: fit-content;
+}
+
+/* VÁCH NGĂN */
+.p3-divider {
+  width: 3px;
+  background: #dcd3ff;
+  margin: 0 18px;
+  border-radius: 3px;
+}
+
+/* CỘT PHẢI – CUỘN */
+.p3-right {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 10px;
+  height: 600px;
+}
+
+/* Card câu hỏi */
+.p3-card {
+  background: white;
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  margin-bottom: 14px;
+}
+
+/* Ảnh đáp án */
+.p3-img img {
+  width: 110px;
+  border-radius: 14px;
+}
+
+/* Lựa chọn */
+.p3-options-row {
+  display: flex;
+  gap: 14px;
+}
+
+.p3-option {
+  background: #f5f3ff;
+  padding: 8px 10px;
+  border-radius: 14px;
+  text-align: center;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.p3-option input {
+  display: none;
+}
+
+/* Tô màu khi chọn */
+.p3-option input:checked ~ .p3-letter-wrap .p3-bullet {
+  background: #a78bfa;
+  border-color: #6d28d9;
+}
+
+/* Chữ A B C */
+.p3-letter-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+  gap: 6px;
+}
+
+.p3-bullet {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid #b9aefc;
+}
+
+/* Cuộn mượt */
+.p3-right::-webkit-scrollbar {
+  width: 8px;
+}
+.p3-right::-webkit-scrollbar-thumb {
+  background: #c4b5fd;
+  border-radius: 10px;
+}
+
+/* Giữ nguyên hiệu ứng pastel */
+/* === OVERRIDE PART 3: header + bên trái cố định, chỉ cột phải cuộn === */
+
+/* Toàn bộ Part 3 chiếm gọn chiều cao màn hình (trừ phần mép trên/dưới) */
+#part3 {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 220px);   /* nếu màn hình còn dư/thiếu, em chỉnh 220 lên/xuống */
+  overflow: hidden;              /* không cho trang ngoài cuộn thêm */
+}
+
+/* Tiêu đề PART 3 + thanh audio là phần cố định phía trên */
+#part3 h2,
+#part3 .yl-audio-player {
+  flex-shrink: 0;
+}
+
+/* Khối 2 cột bên dưới */
+#part3 .p3-container {
+  flex: 1;
+  display: flex;
+  gap: 24px;
+  margin-top: 16px;
+}
+
+/* Cột trái – ví dụ: giữ nguyên card, bỏ sticky cũ */
+#part3 .p3-left {
+  flex: 0 0 38%;
+  height: 100%;
+  align-self: stretch;
+  position: relative;   /* ghi đè lại position: sticky, top:140px ở trên */
+  top: auto;
+}
+
+/* Vạch ngăn giữa giữ nguyên chiều cao */
+#part3 .p3-divider {
+  align-self: stretch;
+}
+
+/* Cột phải – chỉ phần này được cuộn */
+#part3 .p3-right {
+  flex: 1;
+  height: 100%;
+  overflow-y: auto;     /* cuộn 5 câu hỏi */
+  padding-right: 10px;
+}
+
+/* Thanh cuộn bên phải đẹp hơn một chút */
+#part3 .p3-right::-webkit-scrollbar {
+  width: 8px;
+}
+#part3 .p3-right::-webkit-scrollbar-thumb {
+  background: #c4b5fd;
+  border-radius: 10px;
+}
+/* === OVERRIDE PART 3: header + bên trái cố định, chỉ cột phải cuộn === */
+
+/* Toàn bộ Part 3 chiếm gọn chiều cao màn hình (trừ phần mép trên/dưới) */
+#part3 {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 220px);   /* nếu màn hình còn dư/thiếu, em chỉnh 220 lên/xuống */
+  overflow: hidden;              /* không cho trang ngoài cuộn thêm */
+}
+
+/* Tiêu đề PART 3 + thanh audio là phần cố định phía trên */
+#part3 h2,
+#part3 .yl-audio-player {
+  flex-shrink: 0;
+}
+
+/* Khối 2 cột bên dưới */
+#part3 .p3-container {
+  flex: 1;
+  display: flex;
+  gap: 24px;
+  margin-top: 16px;
+}
+
+/* Cột trái – ví dụ: giữ nguyên card, bỏ sticky cũ */
+#part3 .p3-left {
+  flex: 0 0 38%;
+  height: 100%;
+  align-self: stretch;
+  position: relative;   /* ghi đè lại position: sticky, top:140px ở trên */
+  top: auto;
+}
+
+/* Vạch ngăn giữa giữ nguyên chiều cao */
+#part3 .p3-divider {
+  align-self: stretch;
+}
+
+/* Cột phải – chỉ phần này được cuộn */
+#part3 .p3-right {
+  flex: 1;
+  height: 100%;
+  overflow-y: auto;     /* cuộn 5 câu hỏi */
+  padding-right: 10px;
+}
+
+/* Thanh cuộn bên phải đẹp hơn một chút */
+#part3 .p3-right::-webkit-scrollbar {
+  width: 8px;
+}
+#part3 .p3-right::-webkit-scrollbar-thumb {
+  background: #c4b5fd;
+  border-radius: 10px;
+}
+/* === FIX LAYOUT RIÊNG CHO PART 3 === */
+
+/* Toàn bộ section Part 3 chiếm gọn chiều cao màn hình, chỉ cuộn trong cột phải */
+#part3 {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 220px);   /* thiếu / thừa, em chỉnh 220 lên hoặc xuống */
+  overflow: hidden;
+}
+
+/* Tiêu đề + thanh audio: luôn cố định phía trên, không cuộn */
+#part3 h2,
+#part3 > .yl-audio-player {
+  flex-shrink: 0;
+}
+
+/* Khối 2 cột bên dưới chiếm phần còn lại */
+#part3 .p3-container {
+  flex: 1;
+  display: flex;
+  height: 100%;          /* ghi đè height: 460px cũ */
+}
+
+/* Cột trái: không sticky nữa, đứng yên theo khối Part 3 */
+#part3 .p3-left {
+  position: relative;     /* ghi đè position: sticky */
+  top: auto;
+  height: 100%;
+}
+
+/* Cột phải: chỉ phần này được cuộn */
+#part3 .p3-right {
+  height: 100%;           /* ghi đè height: 460px cũ */
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* Thanh cuộn cột phải (nếu muốn giữ giống cũ) */
+#part3 .p3-right::-webkit-scrollbar {
+  width: 8px;
+}
+#part3 .p3-right::-webkit-scrollbar-thumb {
+  background: #c4b5fd;
+  border-radius: 10px;
+}
+/* === FIX LAYOUT RIÊNG CHO PART 3 === */
+
+/* Toàn bộ section Part 3 chiếm gọn chiều cao màn hình, chỉ cuộn trong cột phải */
+#part3 {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 160px);   /* thiếu / thừa, em chỉnh 220 lên hoặc xuống */
+  overflow: hidden;
+}
+
+/* Tiêu đề + thanh audio: luôn cố định phía trên, không cuộn */
+#part3 h2,
+#part3 > .yl-audio-player {
+  flex-shrink: 0;
+}
+
+/* Khối 2 cột bên dưới chiếm phần còn lại */
+#part3 .p3-container {
+  flex: 1;
+  display: flex;
+  height: 100%;          /* ghi đè height: 460px cũ */
+}
+
+/* Cột trái: không sticky nữa, đứng yên theo khối Part 3 */
+#part3 .p3-left {
+  position: relative;     /* ghi đè position: sticky */
+  top: auto;
+  height: 100%;
+}
+
+/* Cột phải: chỉ phần này được cuộn */
+#part3 .p3-right {
+  height: 350px;           /* từ 100% → 560px */
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* Thanh cuộn cột phải (nếu muốn giữ giống cũ) */
+#part3 .p3-right::-webkit-scrollbar {
+  width: 8px;
+}
+#part3 .p3-right::-webkit-scrollbar-thumb {
+  background: #c4b5fd;
+  border-radius: 10px;
+}
+/* ĐẢM BẢO PART 3 ẨN ĐƯỢC KHI CHUYỂN SANG PART KHÁC */
+#part3.part-panel.hidden {
+  display: none !important;
+}
+/* ============================
+   LAYOUT PART 2 GIỐNG PART 3
+   ============================ */
+
+/* Toàn bộ Part 2 chiếm gọn chiều cao màn hình */
+#part2 {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 220px);  /* thiếu / thừa thì chỉnh 220 */
+  overflow: hidden;
+}
+
+/* Header, mô tả và audio đứng cố định phía trên */
+#part2 h2,
+#part2 > p,
+#part2 > .yl-audio-player {
+  flex-shrink: 0;
+}
+
+/* Khối 2 cột bên dưới giống p3-container */
+#part2 .p2-layout {
+  flex: 1;
+  display: flex;
+  gap: 24px;
+  margin-top: 16px;
+  height: 100%;              /* ghi đè height cũ (nếu có) */
+}
+
+/* Cột trái = thẻ hình, giống .p3-left */
+#part2 .p2-image-card {
+  flex: 0 0 38%;
+  padding: 18px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  height: 100%;
+  position: relative;
+}
+
+/* Ảnh bên trong co theo khung */
+#part2 .p2-image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+/* Cột phải = câu hỏi, cuộn giống .p3-right */
+#part2 .p2-questions {
+  flex: 1;
+  height: 100%;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* Thanh cuộn bên phải */
+#part2 .p2-questions::-webkit-scrollbar {
+  width: 8px;
+}
+#part2 .p2-questions::-webkit-scrollbar-thumb {
+  background: #c4b5fd;
+  border-radius: 10px;
+}
+
+/* Đảm bảo Part 2 ẩn được khi chuyển sang Part khác */
+#part2.part-panel.hidden {
+  display: none !important;
+}
+/* =======================
+   THU GỌN FOOTER (NÚT NEXT / PREV)
+   ======================= */
+
+/* Thu nhỏ chiều cao footer */
+.footer-nav {
+  margin-top: 10px !important;      /* giảm khoảng cách với nội dung */
+  padding: 0 !important;            /* bỏ padding dư */
+  height: 70px !important;          /* footer thấp hơn (nếu muốn thấp nữa, chỉnh 60px) */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Thu nhỏ kích thước nút */
+.footer-nav .nav-btn {
+  width: 55px !important;           /* mặc định khoảng 80–90px */
+  height: 55px !important;
+  font-size: 20px !important;       /* ký hiệu “<” “>” nhỏ hơn */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+}
+
+/* Nếu muốn nút nhỏ hơn nữa (tuỳ chọn)
+.footer-nav .nav-btn {
+  width: 48px !important;
+  height: 48px !important;
+  font-size: 18px !important;
+}
+*/
+/* ==============================
+   THU GỌN FOOTER VÀ THU NHỎ NÚT
+   ============================== */
+
+/* Footer gọn lại, bám sát nội dung trên */
+.footer-nav {
+  height: 55px !important;         /* giảm chiều cao footer */
+  padding: 0 !important;
+  margin-top: 5px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;                        /* khoảng cách giữa 2 nút */
+}
+
+/* Nút điều hướng – thu nhỏ còn ~60% */
+.footer-nav .nav-btn {
+  width: 55px !important;           /* nút nhỏ lại */
+  height: 55px !important;
+  font-size: 22px !important;       /* icon < > nhỏ lại */
+  line-height: 1 !important;
+  border-radius: 50% !important;   
+  padding: 0 !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15) !important;
+  background: radial-gradient(circle, #ffffff 0%, #dcd5ff 100%);
+}
+
+/* Nếu em muốn nhỏ hơn nữa, thay bằng:
+.footer-nav .nav-btn {
+  width: 48px !important;
+  height: 48px !important;
+  font-size: 18px !important;
+}
+*/
+
+
+
+/* === SIDE NAV BUTTONS (UPDATED BY CHATGPT) === */
+.bottom-nav {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
+  pointer-events: none !important;  /* không chặn click phần thi */
+  z-index: 999 !important;
+}
+
+.bottom-nav .nav-arrow {
+  position: absolute !important;
+  top: 55% !important;
+  transform: translateY(-50%) !important;
+  pointer-events: auto !important;
+
+  width: 52px !important;
+  height: 52px !important;
+  border-radius: 50% !important;
+  border: none !important;
+
+  background: radial-gradient(circle at 30% 20%, #ffffff, #c4b5fd) !important;
+  box-shadow:
+    0 10px 25px rgba(79, 70, 229, 0.45),
+    inset 0 3px 6px rgba(255, 255, 255, 0.9),
+    inset 0 -3px 6px rgba(129, 140, 248, 0.9) !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 26px !important;
+  cursor: pointer !important;
+}
+
+/* Trái & phải theo id cũ để không cần sửa JS */
+#btnPrev {
+  left: 24px !important;
+}
+
+#btnNext {
+  right: 24px !important;
+}
+
+.bottom-nav .nav-arrow:hover {
+  transform: translateY(-50%) scale(1.08) !important;
+}
+.audio-player {
+    width: 50px !important;
+}
+
+.audio-player audio {
+    width: 100% !important;
+}
+
+
+
+/* ===== POPUP KẾT QUẢ KHIÊN ===== */
+.shield-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.shield-overlay.hidden {
+  display: none;
+}
+
+.shield-modal {
+  background: #fffdf5;
+  border-radius: 24px;
+  padding: 32px 40px 28px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.2);
+  text-align: center;
+  max-width: 520px;
+  width: 90%;
+  position: relative;
+  border: 2px solid #fbbf24;
+}
+
+.shield-modal h2 {
+  font-size: 24px;
+  margin-bottom: 16px;
+  color: #b45309;
+}
+
+.shield-icons {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.shield-icons img {
+  width: 48px;
+  height: 48px;
+}
+
+.shield-count {
+  font-size: 20px;
+  font-weight: 600;
+  color: #d97706;
+}
+
+.shield-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  cursor: pointer;
+  color: #9ca3af;
+}
+/* ==== PART 4 – CRAYON COLUMN (LISTENING) ==== */
+#part4 .p4-right {
+  flex: 0 0 9%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+#part4 .p4-crayon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: grab;
+  user-select: none;
+}
+
+#part4 .p4-crayon-icon {
+  display: block;
+  width: 40px;
+  height: auto;
+}
+
+#part4 .p4-crayon-label {
+  font-size: 11px;
+  color: #374151;
+  text-align: center;
+}
+/* ==== PART 4 – VÙNG TÔ MÀU TRÊN TRANH ==== */
+#part4 .p4-image-card {
+  position: relative;
+  display: inline-block;
+}
+
+#part4 .p4-image-card img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#part4 .p4-drop-zone {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    min-width: 70px;
+    min-height: 32px;
+    padding: 4px 12px;
+    border-radius: 999px;
+
+    /* MÀU NỀN thay đổi khi tô */
+    background-color: var(--zone-color, rgba(255,255,255,0.92));
+
+    /* Viền giữ nguyên nhẹ */
+    border: 2px solid rgba(0,0,0,0.25);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 12px;
+    color: #111827;
+
+    box-shadow: 0 6px 14px rgba(15, 23, 42, 0.2);
+    pointer-events: all;
+}
+
+/* Khi đã tô màu */
+#part4 .p4-drop-zone.filled {
+    color: #ffffff;
+    font-weight: bold;
+    border-color: rgba(255,255,255,0.6);
+}
+
+
+/* Hiệu ứng khi đang kéo crayon vào vùng đó */
+#part4 .p4-drop-zone.over {
+  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.7);
+}
+
+
+/* === FIX CUỐI CÙNG CHO PART 2 – KHÔNG KHÓA CHIỀU CAO, CỘT PHẢI HẸP LẠI === */
+#part2 {
+  display: block;          /* bỏ flex + chiều cao cố định */
+  height: auto;
+  overflow: visible;
+}
+
+#part2 .p2-layout {
+  display: flex;
+  gap: 24px;
+  margin-top: 16px;
+  height: auto;            /* không ép height */
+}
+
+/* Cột trái (hình): rộng hơn một chút */
+#part2 .p2-image-card {
+  flex: 1.4;               /* em có thể chỉnh 1.5, 1.6 nếu muốn */
+  height: 210px;
+}
+
+/* Cột phải (câu hỏi): hẹp lại & KHÔNG cuộn riêng nữa */
+#part2 .p2-questions {
+  flex: 0.9;
+  max-width: 380px;        /* chỉnh số này nếu muốn cột càng hẹp */
+  height: auto;
+  overflow: visible;       /* để trang ngoài cuộn bình thường */
+}
+/* ===== FIX PART 1: name pills đứng dọc sát mép phải ===== */
+.p1-layout{
+  gap: 16px;
+}
+
+.p1-image-wrapper{
+  flex: 1;                 /* ưu tiên không gian cho tranh */
+}
+
+.p1-name-bank{
+  flex: 0 0 120px;         /* cột chữ hẹp lại (chỉnh 110–140 tuỳ ý) */
+  display: flex;
+  flex-direction: column;  /* đứng dọc */
+  flex-wrap: nowrap;       /* không wrap */
+  gap: 10px;
+  align-content: initial;  /* bỏ align-content cũ */
+  margin-left: auto;       /* đẩy sát về bên phải */
+  padding-left: 10px;
+  border-left: 2px dashed #cbd5e1; /* vách ngăn nhẹ */
+}
+
+.p1-name-bank .name-pill{
+  width: 100%;
+  text-align: center;
+}
+
+/* =========================================================
+   MOVERS – PART 3 (WRITE LETTERS) – 2 PANES, LEFT SCROLL
+   ========================================================= */
+
+.movers-part3 .m3-shell {
+  margin-top: 12px;
+  display: flex;
+  gap: 18px;
+  border-radius: 16px;
+  background: #fff7ed;
+  padding: 14px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.10);
+  height: clamp(420px, calc(100vh - 220px), 720px);
+  overflow: hidden;
+}
+
+.movers-part3 .m3-divider {
+  width: 2px;
+  background: #fdba74;
+  border-radius: 999px;
+  opacity: 0.9;
+}
+
+/* LEFT (scrollable) */
+.movers-part3 .m3-left {
+  flex: 1;
+  min-width: 0;
+  overflow: auto;
+  padding-right: 8px;
+}
+
+.movers-part3 .m3-left-header {
+  position: sticky;
+  top: 0;
+  z-index: 6;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.10);
+  border: 2px solid rgba(251, 146, 60, 0.25);
+  margin-bottom: 12px;
+}
+
+.movers-part3 .m3-left-header .yl-audio-player {
+  margin-top: 8px;
+}
+
+.movers-part3 .m3-bank {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 12px;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+  border: 2px solid rgba(251, 146, 60, 0.25);
+}
+
+.movers-part3 .m3-bank-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.movers-part3 .m3-bank-item {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 10px;
+  border: 2px solid rgba(251, 146, 60, 0.28);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.movers-part3 .m3-bank-img {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid rgba(251, 146, 60, 0.32);
+  background: #fff;
+}
+
+.movers-part3 .m3-bank-img img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.movers-part3 .m3-bank-letter {
+  font-weight: 800;
+  color: #dc2626;
+  font-size: 14px;
+  letter-spacing: 0.6px;
+}
+
+.movers-part3 .m3-bank-spacer {
+  display: block;
+}
+
+/* Example row on the left */
+.movers-part3 .m3-left-example {
+  margin-top: 12px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 12px;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+  border: 2px dashed rgba(251, 146, 60, 0.45);
+}
+
+.movers-part3 .m3-left-example-title {
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: #9a3412;
+}
+
+/* RIGHT (fixed) */
+.movers-part3 .m3-right {
+  flex: 0 0 340px;
+  min-width: 300px;
+}
+
+.movers-part3 .m3-right-fixed {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 10px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.10);
+  border: 2px solid rgba(251, 146, 60, 0.25);
+}
+
+.movers-part3 .m3-title {
+  font-size: 17px;
+  margin: 0;
+}
+
+.movers-part3 .m3-subtitle {
+  font-size: 12px;
+  color: #4b5563;
+  margin: 0;
+}
+
+.movers-part3 .m3-questions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+/* Question rows */
+.movers-part3 .m3-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff7ed;
+  border: 2px solid rgba(251, 146, 60, 0.25);
+  border-radius: 14px;
+  padding: 8px 8px;
+}
+
+.movers-part3 .m3-row.example {
+  background: #f3f4f6;
+  border-style: dashed;
+}
+
+.movers-part3 .m3-person {
+  width: 98px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.movers-part3 .m3-avatar-card {
+  width: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.movers-part3 .m3-avatar-card img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 2px solid rgba(56, 189, 248, 0.85);
+  background: #e0f2fe;
+}
+
+.movers-part3 .m3-avatar-label {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 6px;
+  border-radius: 999px;
+  background: rgba(251, 146, 60, 0.18);
+  color: #9a3412;
+  border: 1px solid rgba(251, 146, 60, 0.35);
+}
+
+.movers-part3 .m3-dots {
+  flex: 1;
+  height: 0;
+  border-bottom: 2px dotted rgba(251, 146, 60, 0.9);
+  transform: translateY(2px);
+}
+
+.movers-part3 .m3-answer {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  border: 2px solid rgba(251, 146, 60, 0.55);
+  background: #ffffff;
+  font-size: 16px;
+  font-weight: 800;
+  text-align: center;
+  outline: none;
+  color: #111827;
+}
+
+.movers-part3 .m3-answer:focus {
+  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.25);
+  border-color: rgba(56, 189, 248, 0.9);
+}
+
+/* Marking */
+.movers-part3 .m3-row.correct {
+  border-color: rgba(34, 197, 94, 0.8);
+  background: rgba(34, 197, 94, 0.10);
+}
+
+.movers-part3 .m3-row.wrong {
+  border-color: rgba(239, 68, 68, 0.8);
+  background: rgba(239, 68, 68, 0.08);
+}
+
+.movers-part3 .m3-answer.correct {
+  border-color: rgba(34, 197, 94, 0.9);
+}
+
+.movers-part3 .m3-answer.wrong {
+  border-color: rgba(239, 68, 68, 0.9);
+}
+
+@media (max-width: 980px) {
+  .movers-part3 .m3-shell {
+    flex-direction: column;
+    height: auto;
+    max-height: none;
+  }
+
+  .movers-part3 .m3-divider {
+    width: 100%;
+    height: 2px;
+  }
+
+  .movers-part3 .m3-right {
+    flex-basis: auto;
+    min-width: 0;
+  }
+
+  .movers-part3 .m3-left {
+    max-height: 420px;
+  }
+}
+
+
+/* =========================================================
+   FIX (LEVEL02) – PART 4 & PART 5 LAYOUT
+   - Part 4: same layout behavior as Part 3 (left fixed, right scroll)
+   - Part 5: restore crayon column + drop zones when Part moved from #part4 -> #part5
+   ========================================================= */
+
+/* ===== PART 4 (Listen & tick) ===== */
+#part4 .p3-container{
+  height: auto;            /* override old fixed height */
+  display: flex;
+  gap: 24px;
+  margin-top: 16px;
+  align-items: flex-start;
+}
+#part4 .p3-left{
+  position: sticky;        /* keep left example fixed while scrolling */
+  top: 140px;
+  flex: 0 0 38%;
+  height: fit-content;
+}
+#part4 .p3-divider{
+  width: 3px;
+  background: #dcd3ff;
+  border-radius: 3px;
+  align-self: stretch;
+}
+#part4 .p3-right{
+  height: auto;            /* override old 600px */
+  max-height: calc(100vh - 260px);
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* ===== PART 5 (Listen & colour) ===== */
+#part5 .p4-layout{
+  max-width: 1100px;
+  margin: 18px auto 0;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: center;
+}
+#part5 .p4-left{
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+}
+#part5 .p4-divider{
+  width: 3px;
+  background: #dcd3ff;
+  border-radius: 3px;
+  align-self: stretch;
+}
+#part5 .p4-right{
+  flex: 0 0 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+#part5 .p4-crayon{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: grab;
+  user-select: none;
+}
+#part5 .p4-crayon-icon{
+  display: block;
+  width: 40px;
+  height: auto;
+}
+#part5 .p4-crayon-label{
+  font-size: 11px;
+  color: #374151;
+  text-align: center;
+}
+
+/* Picture + zones */
+#part5 .p4-image-card{
+  position: relative;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
+  width: min(740px, 100%);
+}
+#part5 .p4-image-card img{
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+#part5 .p4-drop-zone{
+  position: absolute;
+  transform: translate(-50%, -50%);
+  min-width: 70px;
+  min-height: 32px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background-color: var(--zone-color, rgba(255,255,255,0.92));
+  border: 2px solid rgba(0,0,0,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #111827;
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.2);
+  pointer-events: all;
+}
+#part5 .p4-drop-zone.filled{
+  color: #ffffff;
+  font-weight: bold;
+  border-color: rgba(255,255,255,0.6);
+}
+#part5 .p4-drop-zone.over{
+  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.7);
+}
+
+/* Responsive: stack crayons below on narrow screens */
+@media (max-width: 1050px){
+  #part5 .p4-layout{
+    flex-direction: column;
+    align-items: center;
+  }
+  #part5 .p4-divider{
+    display: none;
+  }
+  #part5 .p4-right{
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+}
+/* PART 3 – right side: allow scrolling so Q5 is not hidden */
+.m3-right {
+  height: 100%;
+}
+
+.m3-right-fixed {
+  height: calc(100vh - 210px); /* chỉnh nếu header cao/thấp */
+  overflow-y: auto;
+  padding-bottom: 24px;        /* chừa chỗ để hàng cuối không bị khuất */
+}

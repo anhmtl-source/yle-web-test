@@ -1,0 +1,866 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Starters practice levels</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --text:#0f172a;
+  --muted:#334155;
+
+  --panel: rgba(255,255,255,.72);
+  --panel2: rgba(255,255,255,.55);
+  --stroke: rgba(15,23,42,.10);
+
+  --road:#424a57;
+  --road2:#2b3240;
+  --dash: rgba(255,255,255,.78);
+
+  --green:#22c55e;
+  --blue:#38bdf8;
+  --pink:#fb7185;
+  --amber:#f59e0b;
+  --red:#ef4444;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(900px 600px at 18% 10%, rgba(255,220,120,.75), transparent 55%),
+    radial-gradient(1200px 800px at 80% 0%, rgba(191,233,255,.85), transparent 55%),
+    radial-gradient(1200px 800px at 60% 35%, rgba(182,255,225,.60), transparent 60%),
+    linear-gradient(180deg, #bfe9ff 0%, #d9fff2 44%, #fff0bf 100%);
+  overflow-x:hidden;
+}
+/* clouds */
+body::before{
+  content:"";
+  position:fixed; inset:-10% -10%;
+  background:
+    radial-gradient(closest-side at 15% 18%, rgba(255,255,255,.72), rgba(255,255,255,0) 70%),
+    radial-gradient(closest-side at 35% 12%, rgba(255,255,255,.60), rgba(255,255,255,0) 72%),
+    radial-gradient(closest-side at 65% 16%, rgba(255,255,255,.55), rgba(255,255,255,0) 72%),
+    radial-gradient(closest-side at 82% 22%, rgba(255,255,255,.62), rgba(255,255,255,0) 70%),
+    radial-gradient(closest-side at 25% 34%, rgba(255,255,255,.45), rgba(255,255,255,0) 72%),
+    radial-gradient(closest-side at 72% 38%, rgba(255,255,255,.40), rgba(255,255,255,0) 72%);
+  filter: blur(1px);
+  opacity:.55;
+  pointer-events:none;
+}
+/* subtle grain */
+body::after{
+  content:"";
+  position:fixed; inset:0;
+  background-image:
+    radial-gradient(rgba(0,0,0,.06) 1px, transparent 1px);
+  background-size: 22px 22px;
+  opacity:.12;
+  mix-blend-mode: soft-light;
+  pointer-events:none;
+}
+
+.shell{max-width:100%; margin:0; padding:0 0 28px;}
+.topbar{
+  position:sticky; top:0; z-index:20;
+  padding: 14px 14px 12px;
+  backdrop-filter: blur(10px);
+  background: linear-gradient(180deg, rgba(255,255,255,.76), rgba(255,255,255,.42));
+  border-bottom: 1px solid rgba(15,23,42,.08);
+}
+.topbarRow{display:flex;align-items:center;gap:12px;justify-content:space-between}
+.back{
+  flex:0 0 auto;
+  text-decoration:none;
+  color: rgba(15,23,42,.88);
+  padding:10px 12px;
+  border-radius:14px;
+  background: rgba(255,255,255,.70);
+  border:1px solid rgba(15,23,42,.10);
+  box-shadow: 0 10px 24px rgba(15,23,42,.08);
+}
+.back:hover{filter: brightness(1.03)}
+.titlewrap{display:flex;flex-direction:column;gap:2px;align-items:flex-end;text-align:right}
+h1{margin:0;font-size:18px;font-weight:900;letter-spacing:.2px}
+.subtitle{font-size:12px;color:rgba(15,23,42,.64)}
+
+.stage{
+  margin:14px 14px 0;
+  border-radius: 28px;
+  border: 1px solid rgba(15,23,42,.10);
+  background:
+    radial-gradient(1000px 520px at 50% 10%, rgba(34,197,94,.14), transparent 60%),
+    radial-gradient(900px 520px at 10% 40%, rgba(56,189,248,.12), transparent 60%),
+    radial-gradient(900px 520px at 90% 55%, rgba(251,113,133,.10), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,.70), rgba(255,255,255,.38));
+  box-shadow: 0 28px 80px rgba(15,23,42,.18), inset 0 1px 0 rgba(255,255,255,.55);
+  overflow:hidden;
+}
+
+.quickNav{
+  position: sticky;
+  top: 64px;
+  z-index: 18;
+  display:flex;
+  justify-content:flex-end;
+  padding: 10px 14px 0;
+  pointer-events:none;
+}
+.quickNav .pill{
+  pointer-events:auto;
+  display:flex; align-items:center; gap:10px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.82);
+  border: 1px solid rgba(15,23,42,.10);
+  box-shadow: 0 18px 40px rgba(15,23,42,.12);
+}
+.quickNav span{font-weight:800;font-size:12px;color:rgba(15,23,42,.65)}
+.quickNav select{
+  border:0; outline:0;
+  background: rgba(15,23,42,.06);
+  color: rgba(15,23,42,.92);
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-weight: 900;
+}
+
+.map{
+  position:relative;
+  padding: 28px 24px 40px;
+}
+
+/* richer world background so empty areas feel like a real map */
+.map::before{
+  content:"";
+  position:absolute; inset:0;
+  z-index:0;
+  pointer-events:none;
+  opacity:.72;
+  background:
+    radial-gradient(220px 180px at 18% 18%, rgba(34,197,94,.22), transparent 70%),
+    radial-gradient(260px 200px at 78% 22%, rgba(56,189,248,.18), transparent 72%),
+    radial-gradient(280px 220px at 24% 62%, rgba(245,158,11,.14), transparent 72%),
+    radial-gradient(360px 260px at 82% 70%, rgba(16,185,129,.16), transparent 74%),
+    radial-gradient(140px 120px at 34% 36%, rgba(255,255,255,.38), transparent 70%),
+    radial-gradient(160px 140px at 64% 54%, rgba(255,255,255,.30), transparent 72%),
+    linear-gradient(180deg, rgba(255,255,255,.00), rgba(34,197,94,.10) 55%, rgba(22,163,74,.16));
+}
+.map::after{
+  content:"";
+  position:absolute; inset:0;
+  z-index:0;
+  pointer-events:none;
+  background:
+    radial-gradient(closest-side at 50% 10%, rgba(0,0,0,.10), rgba(0,0,0,0) 55%),
+    radial-gradient(closest-side at 50% 92%, rgba(0,0,0,.14), rgba(0,0,0,0) 55%);
+  opacity:.55;
+}
+
+/* ensure layers: background < road < props < markers */
+.map{ isolation:isolate; }
+.terrain{ z-index:0; }
+.roadsvg{ z-index:1; }
+.deco{ z-index:2; }
+.marker{ z-index:6; }
+
+@media (min-width: 1200px){
+  .map{padding-left:56px;padding-right:56px;}
+}
+
+/* bright ground + roadside */
+.terrain{
+  position:absolute; left:-10%; right:-10%; bottom:-10%;
+  height: 360px;
+  background:
+    radial-gradient(closest-side at 20% 40%, rgba(34,197,94,.38), transparent 60%),
+    radial-gradient(closest-side at 70% 30%, rgba(16,185,129,.34), transparent 60%),
+    radial-gradient(closest-side at 45% 80%, rgba(245,158,11,.18), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,0), rgba(34,197,94,.18) 45%, rgba(22,163,74,.26));
+  pointer-events:none;
+}
+
+.roadsvg{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  z-index:1;
+  pointer-events:none;
+}
+
+.deco{
+  position:absolute;
+  left: calc(var(--x) * 1%);
+  top: calc(var(--y) * 1px);
+  transform: translate(-50%, -50%) rotate(var(--r)) scale(var(--s,1)) scaleX(var(--fx,1));
+  z-index: 2;
+  filter: drop-shadow(0 16px 22px rgba(15,23,42,.22));
+  opacity: .98;
+  pointer-events:none;
+}
+.deco svg{width: 118px; height: auto}
+
+.marker{
+  position:absolute;
+  left: calc(var(--x) * 1%);
+  top: calc(var(--y) * 1px);
+  transform: translate(-50%, -50%);
+  z-index: 6;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  border: 3px solid rgba(255,255,255,.82);
+  background:
+    radial-gradient(circle at 30% 25%, rgba(255,255,255,.98), rgba(255,255,255,.40) 45%, rgba(0,0,0,.10) 76%),
+    linear-gradient(135deg, rgba(239,68,68,.95), rgba(245,158,11,.75));
+  box-shadow:
+    0 18px 36px rgba(15,23,42,.22),
+    inset 0 1px 0 rgba(255,255,255,.70);
+  cursor:pointer;
+  user-select:none;
+}
+.marker::after{
+  content:"";
+  position:absolute; inset:6px;
+  border-radius:50%;
+  border: 2px dashed rgba(15,23,42,.22);
+  opacity:.55;
+}
+.marker span{
+  display:grid;place-items:center;
+  width: 100%;
+  height: 100%;
+  font-weight: 1000;
+  font-size: 16px;
+  letter-spacing:.8px;
+  color: rgba(15,23,42,.92);
+  text-shadow: 0 1px 0 rgba(255,255,255,.55);
+}
+.marker:focus{outline:none; box-shadow: 0 0 0 5px rgba(56,189,248,.28), 0 18px 36px rgba(15,23,42,.22), inset 0 1px 0 rgba(255,255,255,.70);}
+.marker:hover{transform: translate(-50%,-52%);}
+
+.popover{
+  position:absolute;
+  left:0; top:0;
+  transform: translate(-50%, calc(-100% - 14px));
+  width: min(320px, calc(100vw - 40px));
+  padding: 12px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.92);
+  border: 1px solid rgba(15,23,42,.10);
+  box-shadow: 0 28px 70px rgba(15,23,42,.18);
+  z-index: 10;
+  backdrop-filter: blur(12px);
+  display:none;
+}
+.popover[data-open="true"]{display:block}
+.pop-title{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:10px;
+  font-weight: 1000;
+}
+.pop-close{
+  border:0; cursor:pointer;
+  background: rgba(15,23,42,.08);
+  width: 34px; height: 34px;
+  border-radius: 12px;
+  font-weight: 1000;
+  color: rgba(15,23,42,.70);
+}
+.pop-actions{display:flex;gap:10px;margin-top:10px}
+.pop-btn{
+  flex:1;
+  text-decoration:none;
+  font-weight: 1000;
+  color:white;
+  padding: 12px 12px;
+  border-radius: 999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  box-shadow: 0 16px 28px rgba(15,23,42,.16);
+  transition: transform .15s ease, filter .15s ease;
+}
+.pop-btn:hover{transform: translateY(-2px); filter: brightness(1.04);}
+.pop-btn:active{transform: translateY(0);}
+.pop-btn.listen{background: linear-gradient(135deg, #0ea5e9, #22c55e);}
+.pop-btn.rw{background: linear-gradient(135deg, #fb7185, #f59e0b);}
+
+.hint{
+  position: sticky;
+  bottom: 14px;
+  z-index: 4;
+  margin: 12px 14px 0;
+  padding: 10px 12px;
+  border-radius: 16px;
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(15,23,42,.10);
+  box-shadow: 0 18px 40px rgba(15,23,42,.10);
+  color: rgba(15,23,42,.70);
+  font-size: 12px;
+}
+
+@media (max-width:700px){
+  .topbarRow{flex-direction:column;align-items:stretch}
+  .titlewrap{align-items:flex-start;text-align:left}
+}
+
+/* === HOME PAGE PALETTE SYNC (YLE main page as reference) === */
+:root{
+  --home-bg-a:#ffe5a7;
+  --home-bg-b:#ffd3e1;
+  --home-bg-c:#fff7d6;
+  --home-bg-d:#f9f5ff;
+
+  --home-head-a:#a78bfa;
+  --home-head-b:#f97373;
+}
+
+body{
+  background: radial-gradient(circle at top,
+    var(--home-bg-a) 0%,
+    var(--home-bg-b) 30%,
+    var(--home-bg-c) 65%,
+    var(--home-bg-d) 100%);
+}
+
+/* Top bar like the main YLE header */
+.topbar{
+  background: linear-gradient(135deg,
+    rgba(167,139,250,.88),
+    rgba(249,115,115,.82));
+  border-bottom: none;
+  box-shadow: 0 14px 32px rgba(79,70,229,.28);
+  padding: 16px 16px 14px;
+}
+
+.topbarRow{
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.topbar h1{ color:#fff; }
+.topbar .subtitle{ color: rgba(255,255,255,.88); }
+
+.back{
+  background: rgba(255,255,255,.22);
+  border: 1px solid rgba(255,255,255,.45);
+  color: rgba(255,255,255,.96);
+  box-shadow: 0 12px 26px rgba(15,23,42,.14);
+}
+.back:hover{
+  background: rgba(255,255,255,.30);
+  transform: translateY(-1px);
+}
+
+/* Stage glass panel aligned with main shell */
+.stage{
+  background:
+    radial-gradient(900px 520px at 25% 10%, rgba(255,211,225,.40), transparent 60%),
+    radial-gradient(900px 520px at 85% 0%, rgba(224,242,254,.55), transparent 60%),
+    radial-gradient(900px 520px at 60% 50%, rgba(255,247,214,.55), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,.78), rgba(255,255,255,.52));
+  border: 1px solid rgba(255,255,255,.62);
+  box-shadow: 0 26px 70px rgba(15,23,42,.18), 0 0 0 1px rgba(255,255,255,.55);
+}
+
+/* Softer shadows so the palette feels unified */
+.pill, .popover{
+  box-shadow: 0 20px 44px rgba(15,23,42,.14);
+}
+
+</style>
+</head>
+<body>
+  <div class="shell">
+    <div class="topbar">
+      <div class="topbarRow">
+        <a class="back" href="../yle-levels.html">← Back to YLE levels</a>
+        <div class="titlewrap">
+          <h1>Starters practice levels</h1>
+          <div class="subtitle">Race from the top down. Click a checkpoint to start (supports 35–40+ levels).</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="quickNav">
+        <div class="pill">
+          <span>Jump to</span>
+          <select id="jumpSelect" aria-label="Jump to level"></select>
+        </div>
+      </div>
+
+      <div class="map" id="map">
+        <svg class="roadsvg" id="roadSvg" aria-hidden="true"></svg>
+        <div class="terrain"></div>
+
+        <div class="popover" id="popover" role="dialog" aria-hidden="true">
+          <div class="pop-title">
+            <span id="popTitle">Level</span>
+            <button class="pop-close" id="popClose" aria-label="Close">✕</button>
+          </div>
+          <div class="pop-actions">
+            <a class="pop-btn listen" id="popListen" href="#">🎧 Listening</a>
+            <a class="pop-btn rw" id="popRW" href="#">✏️ Read &amp; Write</a>
+          </div>
+        </div>
+
+        <div class="hint"><b>Tip:</b> Use the Jump menu to quickly find a level.</div>
+      </div>
+    </div>
+  </div>
+
+<script>
+
+(() => {
+  // ===== CONFIG =====
+  const TOTAL_LEVELS = 40;         // change to 35–40 (or more) later
+  const STEP_Y = 190;              // distance between checkpoints
+  const TOP_PAD = 120;
+  const BOT_PAD = 220;
+  const AMP_PCT = 30;              // how wide the track swings left/right
+  const ROAD_WIDTH = 140;
+
+  const map = document.getElementById('map');
+  const roadSvg = document.getElementById('roadSvg');
+  const pop = document.getElementById('popover');
+  const popTitle = document.getElementById('popTitle');
+  const popListen = document.getElementById('popListen');
+  const popRW = document.getElementById('popRW');
+  const popClose = document.getElementById('popClose');
+  const jumpSelect = document.getElementById('jumpSelect');
+
+  const mapHeight = TOP_PAD + BOT_PAD + (TOTAL_LEVELS - 1) * STEP_Y;
+  map.style.height = mapHeight + "px";
+
+  for(let i=1;i<=TOTAL_LEVELS;i++) {
+    const opt = document.createElement('option');
+    opt.value = i;
+    opt.textContent = "Level " + String(i).padStart(2,'0');
+    jumpSelect.appendChild(opt);
+  }
+
+
+  const DECOS = [
+  { name:"start", svg:`<svg viewBox="0 0 200 150" aria-hidden="true">
+    <defs>
+      <linearGradient id="archG" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#22c55e"/><stop offset="1" stop-color="#16a34a"/>
+      </linearGradient>
+      <pattern id="chk" width="10" height="10" patternUnits="userSpaceOnUse">
+        <rect width="10" height="10" fill="#fff"/>
+        <rect width="5" height="5" fill="#111827"/>
+        <rect x="5" y="5" width="5" height="5" fill="#111827"/>
+      </pattern>
+    </defs>
+    <path d="M38 118 C38 56, 72 30, 100 30 C128 30, 162 56, 162 118"
+          fill="none" stroke="url(#archG)" stroke-width="18" stroke-linecap="round"/>
+    <rect x="45" y="98" width="30" height="36" rx="10" fill="#065f46"/>
+    <rect x="125" y="98" width="30" height="36" rx="10" fill="#065f46"/>
+    <rect x="62" y="52" width="76" height="24" rx="12" fill="url(#chk)"/>
+    <text x="100" y="90" text-anchor="middle" font-size="16" font-weight="900"
+          fill="#064e3b" font-family="system-ui, sans-serif">START</text>
+  </svg>`},
+
+  { name:"finish", svg:`<svg viewBox="0 0 220 150" aria-hidden="true">
+    <defs>
+      <pattern id="chk2" width="12" height="12" patternUnits="userSpaceOnUse">
+        <rect width="12" height="12" fill="#fff"/>
+        <rect width="6" height="6" fill="#111827"/>
+        <rect x="6" y="6" width="6" height="6" fill="#111827"/>
+      </pattern>
+    </defs>
+    <rect x="44" y="36" width="16" height="92" rx="8" fill="#374151"/>
+    <rect x="160" y="36" width="16" height="92" rx="8" fill="#374151"/>
+    <rect x="52" y="42" width="116" height="28" rx="14" fill="url(#chk2)"/>
+    <rect x="52" y="70" width="116" height="28" rx="14" fill="url(#chk2)" opacity=".85"/>
+    <text x="110" y="120" text-anchor="middle" font-size="18" font-weight="1000"
+          fill="#111827" font-family="system-ui, sans-serif">FINISH</text>
+  </svg>`},
+
+  { name:"house", svg:`<svg viewBox="0 0 180 150" aria-hidden="true">
+    <defs><linearGradient id="w" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#dbeafe"/>
+    </linearGradient></defs>
+    <rect x="30" y="72" width="120" height="62" rx="12" fill="url(#w)" stroke="#93c5fd" stroke-width="3"/>
+    <path d="M28 78 L90 28 L152 78" fill="#fb7185" stroke="#be123c" stroke-width="6" stroke-linejoin="round"/>
+    <rect x="78" y="98" width="28" height="36" rx="8" fill="#1f2937"/>
+    <rect x="44" y="90" width="28" height="22" rx="6" fill="#fde68a" stroke="#f59e0b" stroke-width="3"/>
+    <rect x="108" y="90" width="28" height="22" rx="6" fill="#fde68a" stroke="#f59e0b" stroke-width="3"/>
+    <circle cx="144" cy="50" r="10" fill="#fbbf24"/>
+  </svg>`},
+
+  { name:"billboard", svg:`<svg viewBox="0 0 200 150" aria-hidden="true">
+    <rect x="34" y="26" width="132" height="70" rx="14" fill="#111827" opacity=".9"/>
+    <rect x="42" y="34" width="116" height="54" rx="12" fill="#38bdf8"/>
+    <text x="100" y="66" text-anchor="middle" font-size="16" font-weight="1000"
+          fill="#0b1220" font-family="system-ui, sans-serif">GO!</text>
+    <rect x="82" y="96" width="16" height="44" rx="8" fill="#6b7280"/>
+    <rect x="102" y="96" width="16" height="44" rx="8" fill="#6b7280"/>
+  </svg>`},
+
+  { name:"traffic", svg:`<svg viewBox="0 0 180 150" aria-hidden="true">
+    <rect x="78" y="26" width="24" height="100" rx="12" fill="#374151"/>
+    <rect x="64" y="36" width="52" height="74" rx="14" fill="#111827"/>
+    <circle cx="90" cy="54" r="12" fill="#ef4444"/>
+    <circle cx="90" cy="74" r="12" fill="#fbbf24"/>
+    <circle cx="90" cy="94" r="12" fill="#22c55e"/>
+    <rect x="70" y="118" width="40" height="12" rx="6" fill="#6b7280"/>
+  </svg>`},
+
+  { name:"cones", svg:`<svg viewBox="0 0 200 150" aria-hidden="true">
+    <g transform="translate(24,20)">
+      <path d="M36 100 L60 28 L84 100 Z" fill="#f97316"/>
+      <rect x="32" y="96" width="56" height="16" rx="8" fill="#111827" opacity=".85"/>
+      <rect x="44" y="62" width="32" height="10" rx="5" fill="#fff" opacity=".9"/>
+    </g>
+    <g transform="translate(98,26) scale(.95)">
+      <path d="M36 100 L60 28 L84 100 Z" fill="#f97316"/>
+      <rect x="32" y="96" width="56" height="16" rx="8" fill="#111827" opacity=".85"/>
+      <rect x="44" y="62" width="32" height="10" rx="5" fill="#fff" opacity=".9"/>
+    </g>
+  </svg>`},
+
+  { name:"pit", svg:`<svg viewBox="0 0 210 150" aria-hidden="true">
+    <rect x="30" y="64" width="150" height="70" rx="14" fill="#e5e7eb" stroke="#94a3b8" stroke-width="3"/>
+    <rect x="30" y="52" width="150" height="20" rx="10" fill="#fb7185"/>
+    <text x="105" y="66" text-anchor="middle" font-size="12" font-weight="1000"
+          fill="#111827" font-family="system-ui, sans-serif">PIT STOP</text>
+    <rect x="52" y="88" width="40" height="30" rx="10" fill="#38bdf8"/>
+    <rect x="118" y="88" width="40" height="30" rx="10" fill="#22c55e"/>
+    <circle cx="188" cy="118" r="10" fill="#fbbf24"/>
+  </svg>`},
+
+  { name:"gas", svg:`<svg viewBox="0 0 190 150" aria-hidden="true">
+    <rect x="56" y="44" width="70" height="90" rx="14" fill="#22c55e" stroke="#166534" stroke-width="4"/>
+    <rect x="68" y="56" width="46" height="28" rx="10" fill="#e5e7eb"/>
+    <path d="M126 56 C148 56, 152 78, 138 90 L126 100" fill="none" stroke="#111827" stroke-width="8" stroke-linecap="round"/>
+    <rect x="78" y="92" width="26" height="22" rx="8" fill="#111827" opacity=".85"/>
+    <text x="91" y="77" text-anchor="middle" font-size="12" font-weight="1000"
+          fill="#111827" font-family="system-ui, sans-serif">GAS</text>
+  </svg>`},
+
+  { name:"tree", svg:`<svg viewBox="0 0 170 150" aria-hidden="true">
+    <rect x="78" y="86" width="14" height="48" rx="7" fill="#8b5a2b"/>
+    <circle cx="85" cy="70" r="34" fill="#22c55e"/>
+    <circle cx="64" cy="82" r="22" fill="#16a34a"/>
+    <circle cx="104" cy="82" r="22" fill="#16a34a"/>
+    <circle cx="85" cy="52" r="18" fill="#34d399"/>
+    <ellipse cx="85" cy="134" rx="36" ry="8" fill="rgba(0,0,0,.12)"/>
+  </svg>`},
+
+  { name:"lamp", svg:`<svg viewBox="0 0 160 150" aria-hidden="true">
+    <rect x="76" y="34" width="10" height="100" rx="5" fill="#334155"/>
+    <path d="M81 40 C110 40, 110 56, 100 64" fill="none" stroke="#334155" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="98" cy="70" r="12" fill="#fde68a" stroke="#f59e0b" stroke-width="3"/>
+    <ellipse cx="98" cy="118" rx="40" ry="14" fill="rgba(253,230,138,.22)"/>
+    <rect x="62" y="126" width="38" height="10" rx="5" fill="#64748b"/>
+  </svg>`},
+
+  { name:"stands", svg:`<svg viewBox="0 0 220 150" aria-hidden="true">
+    <path d="M36 124 L74 64 L146 64 L184 124 Z" fill="#94a3b8" opacity=".9"/>
+    <rect x="52" y="74" width="116" height="46" rx="10" fill="#e5e7eb"/>
+    <rect x="56" y="78" width="108" height="12" rx="6" fill="#fb7185"/>
+    <rect x="56" y="94" width="108" height="12" rx="6" fill="#38bdf8"/>
+    <rect x="56" y="110" width="108" height="8" rx="4" fill="#22c55e"/>
+    <text x="110" y="58" text-anchor="middle" font-size="12" font-weight="1000"
+          fill="#0f172a" font-family="system-ui, sans-serif">STANDS</text>
+  </svg>`}
+  ,
+  { name:"pond", svg:`<svg viewBox="0 0 220 150" aria-hidden="true">
+    <defs>
+      <radialGradient id="pG" cx="30%" cy="30%" r="80%">
+        <stop offset="0" stop-color="#a7f3ff"/>
+        <stop offset="0.6" stop-color="#38bdf8"/>
+        <stop offset="1" stop-color="#0ea5e9"/>
+      </radialGradient>
+    </defs>
+    <ellipse cx="110" cy="88" rx="74" ry="34" fill="url(#pG)" opacity=".95"/>
+    <ellipse cx="110" cy="88" rx="84" ry="40" fill="none" stroke="rgba(15,23,42,.20)" stroke-width="6"/>
+    <ellipse cx="92" cy="78" rx="28" ry="14" fill="rgba(255,255,255,.35)"/>
+    <circle cx="160" cy="96" r="6" fill="rgba(255,255,255,.35)"/>
+    <ellipse cx="110" cy="128" rx="88" ry="10" fill="rgba(0,0,0,.10)"/>
+  </svg>`},
+
+  { name:"mountains", svg:`<svg viewBox="0 0 240 150" aria-hidden="true">
+    <defs>
+      <linearGradient id="mG" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#94a3b8"/>
+        <stop offset="1" stop-color="#64748b"/>
+      </linearGradient>
+      <linearGradient id="mG2" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#a5b4fc"/>
+        <stop offset="1" stop-color="#64748b"/>
+      </linearGradient>
+    </defs>
+    <path d="M22 126 L86 46 L150 126 Z" fill="url(#mG)"/>
+    <path d="M90 126 L150 36 L214 126 Z" fill="url(#mG2)"/>
+    <path d="M86 46 L104 74 L120 60 L136 86 L150 62 L150 36" fill="rgba(255,255,255,.55)" opacity=".9"/>
+    <path d="M150 36 L166 62 L184 54 L202 80 L214 66" fill="rgba(255,255,255,.50)" opacity=".9"/>
+    <ellipse cx="120" cy="132" rx="104" ry="10" fill="rgba(0,0,0,.10)"/>
+  </svg>`},
+
+  { name:"forest", svg:`<svg viewBox="0 0 220 150" aria-hidden="true">
+    <g transform="translate(6,6)">
+      <rect x="98" y="88" width="12" height="44" rx="6" fill="#8b5a2b"/>
+      <circle cx="104" cy="70" r="28" fill="#22c55e"/>
+      <circle cx="84" cy="82" r="18" fill="#16a34a"/>
+      <circle cx="124" cy="82" r="18" fill="#16a34a"/>
+    </g>
+    <g transform="translate(58,18) scale(.9)">
+      <rect x="98" y="88" width="12" height="44" rx="6" fill="#8b5a2b"/>
+      <circle cx="104" cy="70" r="28" fill="#34d399"/>
+      <circle cx="84" cy="82" r="18" fill="#22c55e"/>
+      <circle cx="124" cy="82" r="18" fill="#16a34a"/>
+    </g>
+    <g transform="translate(118,10) scale(.82)">
+      <rect x="98" y="88" width="12" height="44" rx="6" fill="#8b5a2b"/>
+      <circle cx="104" cy="70" r="28" fill="#16a34a"/>
+      <circle cx="84" cy="82" r="18" fill="#22c55e"/>
+      <circle cx="124" cy="82" r="18" fill="#15803d"/>
+    </g>
+    <ellipse cx="110" cy="136" rx="92" ry="10" fill="rgba(0,0,0,.10)"/>
+  </svg>`}
+
+];
+
+
+  const W = 1000;
+  const H = mapHeight;
+  const centerX = 500;
+  const ampX = (AMP_PCT/100) * W;
+  const points = [];
+  for(let i=0;i<TOTAL_LEVELS;i++) {
+    const phase = i * 0.85;
+    const x = centerX + ampX * Math.sin(phase);
+    const y = TOP_PAD + i * STEP_Y;
+    points.push({x,y});
+  }
+
+  function buildSmoothPath(pts){
+    if(pts.length<2) return "";
+    let d = `M ${pts[0].x.toFixed(1)} ${pts[0].y.toFixed(1)}`;
+    for(let i=1;i<pts.length;i++) {
+      const p0 = pts[i-1];
+      const p1 = pts[i];
+      const midY = (p0.y + p1.y) / 2;
+      d += ` C ${p0.x.toFixed(1)} ${midY.toFixed(1)}, ${p1.x.toFixed(1)} ${midY.toFixed(1)}, ${p1.x.toFixed(1)} ${p1.y.toFixed(1)}`;
+    }
+    return d;
+  }
+  const trackD = buildSmoothPath(points);
+
+  roadSvg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  roadSvg.setAttribute("preserveAspectRatio", "none");
+  const road = getComputedStyle(document.documentElement).getPropertyValue('--road').trim();
+  const road2 = getComputedStyle(document.documentElement).getPropertyValue('--road2').trim();
+  const dash = getComputedStyle(document.documentElement).getPropertyValue('--dash').trim();
+
+  roadSvg.innerHTML = `
+  <defs>
+    <linearGradient id="asphalt" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="${road}"/>
+      <stop offset="1" stop-color="${road2}"/>
+    </linearGradient>
+
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="12" flood-color="#000000" flood-opacity="0.22"/>
+    </filter>
+
+    <!-- asphalt texture -->
+    <filter id="tex" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" result="n"/>
+      <feColorMatrix in="n" type="matrix"
+        values="0 0 0 0 0.15
+                0 0 0 0 0.16
+                0 0 0 0 0.18
+                0 0 0 .28 0" result="a"/>
+      <feComposite in="a" in2="SourceGraphic" operator="in" result="m"/>
+      <feBlend in="SourceGraphic" in2="m" mode="soft-light"/>
+    </filter>
+
+    <linearGradient id="shadowEdge" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="rgba(0,0,0,.22)"/>
+      <stop offset="1" stop-color="rgba(0,0,0,.08)"/>
+    </linearGradient>
+  </defs>
+
+  <!-- distant grass strokes -->
+  <path d="M 0 ${H-280} C 220 ${H-380}, 520 ${H-220}, 760 ${H-360} C 880 ${H-440}, 960 ${H-300}, 1000 ${H-330} L 1000 ${H} L 0 ${H} Z"
+        fill="rgba(34,197,94,.14)"/>
+  <path d="M 0 ${H-380} C 180 ${H-460}, 420 ${H-330}, 620 ${H-420} C 780 ${H-490}, 880 ${H-430}, 1000 ${H-500}"
+        fill="none" stroke="rgba(245,158,11,.10)" stroke-width="56" stroke-linecap="round"/>
+
+  <!-- rumble stripes (red base + white segments) -->
+  <path d="${trackD}" fill="none" stroke="#ef4444" stroke-width="${ROAD_WIDTH+28}"
+        stroke-linecap="round" stroke-linejoin="round" filter="url(#soft)"/>
+  <path d="${trackD}" fill="none" stroke="#ffffff" stroke-width="${ROAD_WIDTH+28}"
+        stroke-dasharray="28 28" stroke-dashoffset="14"
+        stroke-linecap="butt" stroke-linejoin="round" opacity=".85"/>
+
+  <!-- asphalt -->
+  <path d="${trackD}" fill="none" stroke="url(#asphalt)" stroke-width="${ROAD_WIDTH}"
+        stroke-linecap="round" stroke-linejoin="round" filter="url(#tex)"/>
+
+  <!-- subtle edge shading -->
+  <path d="${trackD}" fill="none" stroke="url(#shadowEdge)" stroke-width="${ROAD_WIDTH-8}"
+        stroke-linecap="round" stroke-linejoin="round" opacity=".28"/>
+
+  <!-- center line -->
+  <path d="${trackD}" fill="none" stroke="${dash}" stroke-width="10"
+        stroke-dasharray="26 22" stroke-linecap="round" stroke-linejoin="round"/>
+`;
+function addDeco(svgStr, xPct, yPx, rDeg, s=1, fx=1) {
+    const el = document.createElement('div');
+    el.className = 'deco';
+    el.style.setProperty('--x', xPct.toFixed(2));
+    el.style.setProperty('--y', yPx.toFixed(1));
+    el.style.setProperty('--r', rDeg + 'deg');
+    el.style.setProperty('--s', String(s));
+    el.style.setProperty('--fx', String(fx));
+el.innerHTML = svgStr;
+    map.appendChild(el);
+  }
+
+  function addMarker(levelNum, xPct, yPx, listenHref, rwHref) {
+    const btn = document.createElement('button');
+    btn.type = "button";
+    btn.className = "marker";
+    btn.style.setProperty('--x', xPct.toFixed(2));
+    btn.style.setProperty('--y', yPx.toFixed(1));
+    btn.dataset.level = String(levelNum).padStart(2,'0');
+    btn.dataset.listen = listenHref;
+    btn.dataset.rw = rwHref;
+    btn.innerHTML = `<span class="num">${String(levelNum).padStart(2,'0')}</span>`;
+    map.appendChild(btn);
+    return btn;
+  }
+
+  const markers = [];
+  for(let i=0;i<TOTAL_LEVELS;i++) {
+    const level = i+1;
+    const p = points[i];
+    const xPct = (p.x / W) * 100;
+    const yPx = p.y;
+
+    const lvl = String(level).padStart(2,'0');
+    const listenHref = `level${lvl}/index_starters${lvl}.html`;
+    const rwHref = `level${lvl}/index-starters-rw${lvl}.html`;
+
+    markers.push(addMarker(level, xPct, yPx, listenHref, rwHref));
+
+    // Decorations: make the race feel "real" — props appear on almost every segment
+// DECOS index map:
+// 0 start, 1 finish, 2 house, 3 billboard, 4 traffic, 5 cones, 6 pit, 7 gas, 8 tree, 9 lamp, 10 stands
+if(level === 1) {
+  addDeco(DECOS[0].svg, xPct + 18, yPx + 64, -5, 1.05);
+  addDeco(DECOS[4].svg, xPct - 20, yPx + 40, 3, 0.95);   // traffic light near start
+  addDeco(DECOS[8].svg, xPct + 30, yPx + 110, -2, 0.78); // tree
+} else if(level === TOTAL_LEVELS) {
+  addDeco(DECOS[1].svg, xPct - 18, yPx - 88, 2, 1.08);
+  addDeco(DECOS[10].svg, xPct + 24, yPx - 40, -2, 1.05); // stands
+  addDeco(DECOS[9].svg, xPct - 32, yPx - 10, 2, 0.85);   // lamp
+} else {
+  // one main prop + one filler prop each level (alternating sides)
+  const mainIdx = 2 + (level % 6); // picks from house..gas (2..7)
+  const fillerIdx = (level % 2 === 0) ? 8 : 9; // tree or lamp
+  const side = (level % 2 === 0) ? -22 : 22;
+  const r = (level % 2 === 0) ? -4 : 3;
+
+  addDeco(DECOS[mainIdx].svg, xPct + side, yPx + 44, r, (mainIdx===6 ? 1.02 : .95), (level%4===0 ? -1 : 1));
+  addDeco(DECOS[fillerIdx].svg, xPct - side, yPx + 96, -r, 0.78, 1);
+
+  // extra micro props every 4 levels: cones for extra life
+  if(level % 4 === 0){
+    addDeco(DECOS[5].svg, xPct + (side>0 ? -34 : 34), yPx + 22, (side>0 ? -6 : 6), 0.78);
+  }
+
+  // extra scenery to fill wide empty side so the world feels real (town/forest/pond/mountains)
+  const farSide = (xPct > 58) ? -1 : ((xPct < 42) ? 1 : 0); // -1 add to left, 1 add to right
+  if(farSide !== 0){
+    const off = farSide * 48;
+    const baseY = yPx - 18;
+
+    // main background scene alternates
+    if(level % 9 === 2){
+      addDeco(DECOS[13].svg, xPct + off, baseY + 12, farSide===-1 ? -4 : 4, 1.00, (farSide===-1 ? 1 : -1)); // forest
+    } else if(level % 9 === 5){
+      addDeco(DECOS[11].svg, xPct + off, baseY + 26, farSide===-1 ? 2 : -2, 1.06); // pond
+    } else {
+      addDeco(DECOS[12].svg, xPct + off, baseY + 10, farSide===-1 ? -5 : 5, 1.05, (farSide===-1 ? 1 : -1)); // mountains
+    }
+
+    // small town-ish fillers
+    if(level % 6 === 0){
+      addDeco(DECOS[2].svg, xPct + off + (farSide*16), baseY + 88, farSide===-1 ? 2 : -2, 0.62, (farSide===-1 ? 1 : -1)); // house
+      addDeco(DECOS[3].svg, xPct + off - (farSide*14), baseY + 62, farSide===-1 ? -2 : 2, 0.62); // billboard
+    } else {
+      addDeco(DECOS[8].svg, xPct + off + (farSide*14), baseY + 92, 0, 0.62); // tree
+      addDeco(DECOS[9].svg, xPct + off - (farSide*16), baseY + 78, farSide===-1 ? 2 : -2, 0.58); // lamp
+    }
+
+    // occasional crowd stands
+    if(level % 10 === 0){
+      addDeco(DECOS[10].svg, xPct + off, baseY + 118, farSide===-1 ? 2 : -2, 0.72);
+    }
+  }
+
+}}
+
+  let openFor = null;
+  function closePop(){
+    pop.dataset.open = "false";
+    pop.setAttribute('aria-hidden','true');
+    openFor = null;
+  }
+  function openPop(btn){
+    const level = btn.dataset.level;
+    popTitle.textContent = "Level " + level;
+    popListen.href = btn.dataset.listen;
+    popRW.href = btn.dataset.rw;
+    pop.style.left = `calc(${btn.style.getPropertyValue('--x')} * 1%)`;
+    pop.style.top = `calc(${btn.style.getPropertyValue('--y')} * 1px)`;
+    pop.dataset.open = "true";
+    pop.setAttribute('aria-hidden','false');
+    openFor = btn;
+  }
+
+  map.addEventListener('click', (e)=>{
+    const btn = e.target.closest('.marker');
+    if(btn){
+      e.preventDefault();
+      e.stopPropagation();
+      if(openFor === btn) closePop();
+      else openPop(btn);
+      return;
+    }
+    if(!pop.contains(e.target)) closePop();
+  });
+  popClose.addEventListener('click', (e)=>{ e.preventDefault(); closePop(); });
+  document.addEventListener('keydown', (e)=>{ if(e.key==="Escape") closePop(); });
+  pop.addEventListener('click', (e)=> e.stopPropagation());
+
+  jumpSelect.addEventListener('change', ()=>{
+    const v = parseInt(jumpSelect.value,10);
+    const btn = markers[v-1];
+    if(btn){
+      closePop();
+      btn.scrollIntoView({behavior:'smooth', block:'center'});
+      setTimeout(()=>openPop(btn), 420);
+    }
+  });
+
+  closePop();
+})();
+
+</script>
+</body>
+</html>

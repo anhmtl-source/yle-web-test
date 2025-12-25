@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>YLE Practice – Choose Level</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    /* ====== RESET NHẸ ====== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top,
+        #ffe5a7 0%,
+        #ffd3e1 30%,
+        #fff7d6 65%,
+        #f9f5ff 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    /* ====== KHUNG CHÍNH ====== */
+    .main-shell {
+      width: min(1080px, 100%);
+      background: #ffffffcc;
+      backdrop-filter: blur(12px);
+      border-radius: 32px;
+      box-shadow:
+        0 22px 60px rgba(15, 23, 42, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.6);
+      padding: 26px 26px 30px;
+      position: relative;
+    }
+
+    /* bóng pastel quanh khung */
+    .main-shell::before {
+      content: "";
+      position: absolute;
+      inset: -12px;
+      border-radius: 40px;
+      background: linear-gradient(135deg, #ffe082, #ffb3c6, #c4b5fd);
+      opacity: 0.35;
+      z-index: -1;
+      filter: blur(6px);
+    }
+
+    /* ====== HEADER ====== */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 22px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #a78bfa, #f97373);
+      color: #fff;
+      box-shadow: 0 14px 32px rgba(79, 70, 229, 0.55);
+      margin-bottom: 22px;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo-badge {
+      width: 52px;
+      height: 52px;
+      border-radius: 20px;
+      background: radial-gradient(circle at 25% 20%, #ffffff 0, #fde68a 40%, #f97316 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow:
+        0 10px 20px rgba(124, 58, 237, 0.5),
+        0 0 0 3px rgba(255, 255, 255, 0.8);
+      font-size: 26px;
+      font-weight: 800;
+      color: #7c2d12;
+    }
+
+    .head-text h1 {
+      font-size: clamp(22px, 2.3vw, 26px);
+      font-weight: 800;
+      letter-spacing: 0.03em;
+    }
+
+    .head-text p {
+      font-size: 13px;
+      opacity: 0.92;
+    }
+
+    .timer-pill {
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: #fef3c7aa;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.25);
+    }
+
+    .timer-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 25% 20%, #fff, #fee2e2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    .timer-pill span {
+      font-size: 13px;
+      font-weight: 600;
+      color: #4b5563;
+    }
+
+    /* ====== KHU VỰC NAME + LEVEL ====== */
+    .content {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.3fr);
+      gap: 22px;
+    }
+
+    /* CARD TÊN HỌC SINH */
+    .student-card {
+      background: linear-gradient(145deg, #fef9c3, #fee2e2);
+      border-radius: 24px;
+      padding: 18px 20px 20px;
+      box-shadow: 0 16px 30px rgba(248, 113, 113, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .student-card::after {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle, #facc15, #fb923c);
+      border-radius: 50%;
+      top: -40px;
+      right: -20px;
+      opacity: 0.25;
+    }
+
+    .student-card h2 {
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: #92400e;
+    }
+
+    .student-card p {
+      font-size: 13px;
+      color: #78350f;
+      margin-bottom: 16px;
+    }
+
+    .student-input-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .student-input-group label {
+      font-size: 14px;
+      font-weight: 600;
+      color: #7c2d12;
+      white-space: nowrap;
+    }
+
+    .student-input-group input {
+      flex: 1;
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: none;
+      font-size: 14px;
+      box-shadow:
+        inset 0 0 0 1px rgba(251, 191, 36, 0.7),
+        0 6px 14px rgba(234, 88, 12, 0.35);
+    }
+
+    .student-input-group input:focus {
+      outline: none;
+      box-shadow:
+        inset 0 0 0 2px #f97316,
+        0 6px 14px rgba(234, 88, 12, 0.45);
+    }
+
+    .student-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #fef3c7dd;
+      font-size: 12px;
+      font-weight: 600;
+      color: #92400e;
+    }
+
+    .student-avatar {
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .avatar-circle {
+      width: 54px;
+      height: 54px;
+      border-radius: 20px;
+      background: radial-gradient(circle at 20% 20%, #fff, #bfdbfe);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow:
+        0 12px 22px rgba(37, 99, 235, 0.4),
+        0 0 0 3px rgba(255, 255, 255, 0.9);
+      font-size: 28px;
+    }
+
+    .avatar-text {
+      font-size: 13px;
+      color: #1f2937;
+    }
+
+    /* ====== CARD CẤP ĐỘ ====== */
+    .levels-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .level-card {
+      border-radius: 22px;
+      padding: 14px 12px 16px;
+      background: linear-gradient(145deg, #eef2ff, #e0f2fe);
+      box-shadow:
+        0 14px 26px rgba(37, 99, 235, 0.28),
+        0 0 0 1px rgba(255, 255, 255, 0.9);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .level-card:hover {
+      transform: translateY(-4px);
+      box-shadow:
+        0 20px 40px rgba(59, 130, 246, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 1);
+    }
+
+    .level-badge {
+      width: 52px;
+      height: 52px;
+      border-radius: 20px;
+      background: radial-gradient(circle at 20% 20%, #fff, #bfdbfe);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+      font-size: 26px;
+      box-shadow:
+        0 12px 22px rgba(37, 99, 235, 0.45),
+        0 0 0 3px rgba(255, 255, 255, 0.9);
+    }
+
+    .level-title {
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 2px;
+    }
+
+    .level-sub {
+      font-size: 12px;
+      color: #4b5563;
+      margin-bottom: 12px;
+    }
+
+    .level-chip-row {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+
+    .level-chip {
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      box-shadow: 0 4px 8px rgba(37, 99, 235, 0.2);
+    }
+
+    .level-card .start-btn {
+      margin-top: auto;
+      padding: 7px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 999px;
+      border: none;
+      color: #fff;
+      background: linear-gradient(135deg, #4f46e5, #f97316);
+      box-shadow:
+        0 8px 18px rgba(30, 64, 175, 0.6),
+        0 0 0 2px rgba(255, 255, 255, 0.9);
+      cursor: pointer;
+    }
+
+    .level-card .start-btn:hover {
+      filter: brightness(1.05);
+    }
+
+    /* Màu riêng từng cấp độ */
+    .level-starters {
+      background: linear-gradient(145deg, #e0f2fe, #ccfbf1);
+    }
+    .level-movers {
+      background: linear-gradient(145deg, #fef3c7, #f9a8d4);
+    }
+    .level-flyers {
+      background: linear-gradient(145deg, #ede9fe, #bfdbfe);
+    }
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 860px) {
+      .content {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .levels-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .timer-pill {
+        align-self: flex-end;
+      }
+    }
+  /* Nhóm nút Start trong từng level */
+  .level-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+
+  .start-pill {
+    padding: 7px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    border: none;
+    color: #fff;
+    box-shadow:
+      0 8px 18px rgba(30, 64, 175, 0.5),
+      0 0 0 2px rgba(255, 255, 255, 0.9);
+    transition: transform 0.12s ease, box-shadow 0.12s ease,
+      filter 0.12s ease;
+  }
+
+  .start-pill.listening {
+    background: linear-gradient(135deg, #4f46e5, #22c55e);
+  }
+
+  .start-pill.reading {
+    background: linear-gradient(135deg, #ec4899, #f97316);
+  }
+
+  .start-pill:hover {
+    filter: brightness(1.05);
+    transform: translateY(-1px);
+    box-shadow:
+      0 10px 22px rgba(30, 64, 175, 0.6),
+      0 0 0 2px rgba(255, 255, 255, 1);
+  }
+
+
+    /* ====== DANH SÁCH LEVEL CON TRONG STARTERS ====== */
+    .level-variants {
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px dashed rgba(148, 163, 184, 0.6);
+    }
+
+    .level-variants-title {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: #6b7280;
+      margin-bottom: 8px;
+    }
+
+    .level-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 8px 10px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #eef2ffdd, #e0f2fed0);
+      box-shadow: 0 6px 14px rgba(148, 163, 184, 0.3);
+      margin-bottom: 8px;
+    }
+
+    .level-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .level-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #1f2933;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 2px 6px rgba(148, 163, 184, 0.6);
+    }
+
+    .level-links {
+      display: flex;
+      gap: 6px;
+    }
+
+    .level-row .start-pill {
+      min-width: auto;
+      padding: 6px 10px;
+      font-size: 11px;
+      box-shadow: 0 4px 10px rgba(59, 130, 246, 0.4);
+    }
+
+    /* ====== EXAM ICONS (SYNC WITH LEVEL MAP PAGES) ====== */
+    .level-card{
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .exam-icon{
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 2px 0 10px;
+      background: radial-gradient(circle at 20% 20%, #fff, #fff7d6);
+      box-shadow:
+        0 14px 26px rgba(15, 23, 42, 0.18),
+        0 0 0 6px rgba(255, 255, 255, 0.9);
+    }
+
+    /* start-btn dùng cho cả button/div trong card */
+    .level-card .start-btn{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 160px;
+      user-select: none;
+      text-align: center;
+    }</style>
+</head>
+<body>
+  <div class="main-shell">
+    <!-- HEADER -->
+    <header class="header">
+      <div class="logo-area">
+        <div class="logo-badge">Y</div>
+        <div class="head-text">
+          <h1>YLE Practice Planet</h1>
+          <p>Choose your level and start your English adventure!</p>
+        </div>
+      </div>
+
+      <div class="timer-pill">
+        <div class="timer-icon">⏰</div>
+        <span>Practice mode · No time limit</span>
+      </div>
+    </header>
+
+    <!-- CONTENT: TÊN + LEVEL -->
+    <section class="content">
+      <!-- Card thông tin học sinh -->
+      <div class="student-card">
+        <h2>Student profile</h2>
+        <p>Type your name and choose a level to begin.</p>
+
+        <div class="student-input-group">
+          <label for="studentName">Name</label>
+          <input
+            type="text"
+            id="studentName"
+            placeholder="e.g. Nguyen Minh Anh"
+          />
+        </div>
+
+        <div class="student-tag">
+          🎯 Aim: Have fun, learn more words and get ready for the real YLE test!
+        </div>
+
+        <div class="student-avatar">
+          <div class="avatar-circle">👧</div>
+          <div class="avatar-text">
+            Ready to fly through <strong>Starters, Movers</strong> and
+            <strong>Flyers</strong> with colourful games and practice tests.
+          </div>
+        </div>
+      </div>
+
+      <!-- Card các cấp độ -->
+      <div class="levels-grid">
+    <!-- Starters -->
+        <a class="level-card level-starters" href="starters/starters-levels.html">
+          <img class="exam-icon" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22220%22%20height%3D%22220%22%20viewBox%3D%220%200%20220%20220%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20x2%3D%221%22%20y1%3D%220%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23ffffff%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23dcfce7%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3Cfilter%20id%3D%22s%22%20x%3D%22-20%25%22%20y%3D%22-20%25%22%20width%3D%22140%25%22%20height%3D%22140%25%22%3E%0A%20%20%20%20%20%20%3CfeDropShadow%20dx%3D%220%22%20dy%3D%228%22%20stdDeviation%3D%228%22%20flood-color%3D%22%230f172a%22%20flood-opacity%3D%220.25%22/%3E%0A%20%20%20%20%3C/filter%3E%0A%20%20%20%20%3CradialGradient%20id%3D%22glow%22%20cx%3D%2230%25%22%20cy%3D%2225%25%22%20r%3D%2270%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%221%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%220%22/%3E%0A%20%20%20%20%3C/radialGradient%3E%0A%20%20%3C/defs%3E%0A%0A%20%20%3Ccircle%20cx%3D%22110%22%20cy%3D%22110%22%20r%3D%2298%22%20fill%3D%22url%28%23g%29%22%20stroke%3D%22%23f59e0b%22%20stroke-width%3D%2210%22%20filter%3D%22url%28%23s%29%22/%3E%0A%20%20%3Ccircle%20cx%3D%2286%22%20cy%3D%2278%22%20r%3D%2264%22%20fill%3D%22url%28%23glow%29%22%20opacity%3D%220.8%22/%3E%0A%0A%20%20%3Ctext%20x%3D%22110%22%20y%3D%2270%22%20text-anchor%3D%22middle%22%20font-family%3D%22system-ui%2CSegoe%20UI%22%20font-size%3D%2216%22%20fill%3D%22%23374151%22%20font-weight%3D%22700%22%3ECambridge%20English%3C/text%3E%0A%20%20%3Ctext%20x%3D%22110%22%20y%3D%22106%22%20text-anchor%3D%22middle%22%20font-family%3D%22system-ui%2CSegoe%20UI%22%20font-size%3D%2234%22%20fill%3D%22%2316a34a%22%20font-weight%3D%22900%22%3EStarters%3C/text%3E%0A%0A%20%20%3C%21--%20cute%20star%20mascot%20--%3E%0A%20%20%3Cg%20transform%3D%22translate%2876%2C124%29%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M34%202l6.2%2013.2%2014.6%202.1-10.6%2010.3%202.5%2014.5L34%2035.2%2020.3%2042.1l2.5-14.5L12.2%2017.3l14.6-2.1L34%202z%22%0A%20%20%20%20%20%20%20%20%20%20fill%3D%22%23fbbf24%22%20stroke%3D%22%23f59e0b%22%20stroke-width%3D%222%22%20/%3E%0A%20%20%20%20%3Ccircle%20cx%3D%2228%22%20cy%3D%2222%22%20r%3D%222.6%22%20fill%3D%22%231f2937%22/%3E%0A%20%20%20%20%3Ccircle%20cx%3D%2240%22%20cy%3D%2222%22%20r%3D%222.6%22%20fill%3D%22%231f2937%22/%3E%0A%20%20%20%20%3Cpath%20d%3D%22M28%2030c4%204%208%204%2012%200%22%20fill%3D%22none%22%20stroke%3D%22%231f2937%22%20stroke-width%3D%222.4%22%20stroke-linecap%3D%22round%22/%3E%0A%20%20%20%20%3Cpath%20d%3D%22M12%2034c-2%206%202%2012%208%2014%22%20fill%3D%22none%22%20stroke%3D%22%2360a5fa%22%20stroke-width%3D%226%22%20stroke-linecap%3D%22round%22%20opacity%3D%220.35%22/%3E%0A%20%20%20%20%3Cpath%20d%3D%22M56%2034c2%206-2%2012-8%2014%22%20fill%3D%22none%22%20stroke%3D%22%2360a5fa%22%20stroke-width%3D%226%22%20stroke-linecap%3D%22round%22%20opacity%3D%220.35%22/%3E%0A%20%20%3C/g%3E%0A%3C/svg%3E" alt="Cambridge English Starters" />
+          <div class="level-title">Starters</div>
+          <div class="level-sub">First steps into English</div>
+          <div class="level-chip-row">
+            <span class="level-chip">Pre A1</span>
+            <span class="level-chip">Fun games</span>
+            <span class="level-chip">Short tasks</span>
+          </div>
+          <div class="start-btn">Start Starters</div>
+        
+        </a>
+
+        <!-- Movers -->
+        <a class="level-card level-movers" href="movers/movers-levels.html">
+          <img class="exam-icon" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22220%22%20height%3D%22220%22%20viewBox%3D%220%200%20220%20220%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20x2%3D%221%22%20y1%3D%220%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23ffffff%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23e0f2fe%22/%3E%3C/linearGradient%3E%3Cfilter%20id%3D%22s%22%20x%3D%22-20%25%22%20y%3D%22-20%25%22%20width%3D%22140%25%22%20height%3D%22140%25%22%3E%3CfeDropShadow%20dx%3D%220%22%20dy%3D%228%22%20stdDeviation%3D%228%22%20flood-color%3D%22%230f172a%22%20flood-opacity%3D%220.25%22/%3E%3C/filter%3E%3C/defs%3E%3Ccircle%20cx%3D%22110%22%20cy%3D%22110%22%20r%3D%2298%22%20fill%3D%22url%28%23g%29%22%20stroke%3D%22%23f59e0b%22%20stroke-width%3D%2210%22%20filter%3D%22url%28%23s%29%22/%3E%3Ctext%20x%3D%22110%22%20y%3D%2270%22%20text-anchor%3D%22middle%22%20font-family%3D%22system-ui%2CSegoe%20UI%22%20font-size%3D%2216%22%20fill%3D%22%23374151%22%20font-weight%3D%22700%22%3ECambridge%20English%3C/text%3E%3Ctext%20x%3D%22110%22%20y%3D%22106%22%20text-anchor%3D%22middle%22%20font-family%3D%22system-ui%2CSegoe%20UI%22%20font-size%3D%2234%22%20fill%3D%22%232563eb%22%20font-weight%3D%22900%22%3EMovers%3C/text%3E%3Cg%20transform%3D%22translate%2886%2C120%29%22%3E%3Crect%20x%3D%220%22%20y%3D%2220%22%20width%3D%2248%22%20height%3D%2218%22%20rx%3D%229%22%20fill%3D%22%2322c55e%22%20opacity%3D%220.25%22/%3E%3Cpath%20d%3D%22M24%200c12%2010%2020%2026%2020%2038-10-6-24-6-40%200%200-12%208-28%2020-38z%22%20fill%3D%22%2360a5fa%22/%3E%3Cpath%20d%3D%22M24%206c7%207%2012%2018%2012%2028-6-3-14-3-24%200%200-10%205-21%2012-28z%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.9%22/%3E%3Ccircle%20cx%3D%2224%22%20cy%3D%2222%22%20r%3D%225%22%20fill%3D%22%231f2937%22/%3E%3Cpath%20d%3D%22M12%2030l-8%2010%2010-4z%22%20fill%3D%22%23f97316%22/%3E%3Cpath%20d%3D%22M36%2030l8%2010-10-4z%22%20fill%3D%22%23f97316%22/%3E%3C/g%3E%3C/svg%3E" alt="Cambridge English Movers" />
+          <div class="level-title">Movers</div>
+          <div class="level-sub">Move to the next level</div>
+          <div class="level-chip-row">
+            <span class="level-chip">A1–A2</span>
+            <span class="level-chip">More vocabulary</span>
+            <span class="level-chip">Longer texts</span>
+          </div>
+          <div class="start-btn">Start Movers</div>
+        </a>
+
+        <!-- Flyers -->
+        <a class="level-card level-flyers" href="Flyers/flyers-levels.html">
+          <img class="exam-icon" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22220%22%20height%3D%22220%22%20viewBox%3D%220%200%20220%20220%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20x2%3D%221%22%20y1%3D%220%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23ffffff%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23ede9fe%22/%3E%3C/linearGradient%3E%3Cfilter%20id%3D%22s%22%20x%3D%22-20%25%22%20y%3D%22-20%25%22%20width%3D%22140%25%22%20height%3D%22140%25%22%3E%3CfeDropShadow%20dx%3D%220%22%20dy%3D%228%22%20stdDeviation%3D%228%22%20flood-color%3D%22%230f172a%22%20flood-opacity%3D%220.25%22/%3E%3C/filter%3E%3C/defs%3E%3Ccircle%20cx%3D%22110%22%20cy%3D%22110%22%20r%3D%2298%22%20fill%3D%22url%28%23g%29%22%20stroke%3D%22%23f59e0b%22%20stroke-width%3D%2210%22%20filter%3D%22url%28%23s%29%22/%3E%3Ctext%20x%3D%22110%22%20y%3D%2270%22%20text-anchor%3D%22middle%22%20font-family%3D%22system-ui%2CSegoe%20UI%22%20font-size%3D%2216%22%20fill%3D%22%23374151%22%20font-weight%3D%22700%22%3ECambridge%20English%3C/text%3E%3Ctext%20x%3D%22110%22%20y%3D%22106%22%20text-anchor%3D%22middle%22%20font-family%3D%22system-ui%2CSegoe%20UI%22%20font-size%3D%2234%22%20fill%3D%22%237c3aed%22%20font-weight%3D%22900%22%3EFlyers%3C/text%3E%3Cg%20transform%3D%22translate%2870%2C122%29%22%3E%3Cpath%20d%3D%22M40%206c20%200%2034%2010%2040%2024-18-10-36-8-50%200%204%2010%2016%2018%2032%2020-24%2010-52-2-58-22C12%2016%2024%206%2040%206z%22%20fill%3D%22%2393c5fd%22/%3E%3Cpath%20d%3D%22M40%2016c12%200%2022%206%2026%2014-12-6-24-5-34%200%203%206%2010%2011%2020%2012-16%206-34-2-38-14%204-8%2014-12%2026-12z%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.9%22/%3E%3Ccircle%20cx%3D%2252%22%20cy%3D%2226%22%20r%3D%223%22%20fill%3D%22%231f2937%22/%3E%3Cpath%20d%3D%22M58%2028l10%204-10%204z%22%20fill%3D%22%23f97316%22/%3E%3C/g%3E%3C/svg%3E" alt="Cambridge English Flyers" />
+          <div class="level-title">Flyers</div>
+          <div class="level-sub">Fly high with English</div>
+          <div class="level-chip-row">
+            <span class="level-chip">A2</span>
+            <span class="level-chip">Story texts</span>
+            <span class="level-chip">Exam-style tasks</span>
+          </div>
+          <div class="start-btn">Start Flyers</div>
+        </a>
+</div>
+    </section>
+  </div>
+
+  <script>
+    // Nhỏ xíu: lưu tên học sinh vào localStorage (nếu em muốn dùng sau này)
+    const input = document.getElementById("studentName");
+    const saved = localStorage.getItem("yleStudentName");
+    if (saved) input.value = saved;
+
+    input.addEventListener("change", () => {
+      localStorage.setItem("yleStudentName", input.value.trim());
+    });
+  </script>
+</body>
+</html>
