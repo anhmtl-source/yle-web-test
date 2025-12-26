@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>YLE Listening – level 3</title>
+    <title>YLE test  – Starters </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style-dragdrop.css">
 
@@ -154,7 +154,7 @@
 
     <header class="exam-header compact">
     <div class="exam-title-block">
-        <h1>Level 3 – YLE Listening</h1>
+        <h1>Test – Starters </h1>
             </div>
 
     <div class="timer-3d">
@@ -181,7 +181,7 @@
         <p>Listen and drag the names onto the correct people in the picture. There is one example.</p>
 
         <!-- Audio Part 1: sửa src cho đúng file của em -->
-        <audio id="audioP1" src="Media/audio/09. Starter 1 - Test 3 - Part 1.mp3"></audio>
+        <audio id="audioP1" src="Media/audio/Phần 1.mp3"></audio>
 
         <div class="yl-audio-player" data-audio="audioP1">
             <button class="yl-play-btn" type="button"></button>
@@ -195,25 +195,25 @@
             <!-- Tranh lớn -->
             <div class="p1-image-wrapper">
                 <!-- sửa src cho đúng hình Part 1 -->
-                <img src="Media/images/Starters- LISTENING/s1t3p1.png" alt="Part 1 picture" class="main-img">
+                <img src="Media/images/Starters- LISTENING/p1.jpg" alt="Part 1 picture" class="main-img">
 
                 <!-- Các drop-box đặt đúng vị trí nhân vật, data-answer là tên đúng -->
-                <div class="drop-box" data-answer="Alex" style="top: 75%; left: 42%;"></div>
-                <div class="drop-box" data-answer="Lucy" style="top: 35%; left: 75%;"></div>
-                <div class="drop-box" data-answer="Matt"  style="top: 58%; left: 13%;"></div>
-                <div class="drop-box" data-answer="Jill" style="top: 70%; left: 66%;"></div>
-                <div class="drop-box" data-answer="Sue"  style="top: 45%; left: 30%;"></div>
+                <div class="drop-box" data-answer="Grace" style="top: 80%; left: 38%;"></div>
+                <div class="drop-box" data-answer="Alice" style="top: 35%; left: 42%;"></div>
+                <div class="drop-box" data-answer="Bill"  style="top: 40%; left: 68%;"></div>
+                <div class="drop-box" data-answer="Matt" style="top: 85%; left: 75%;"></div>
+                <div class="drop-box" data-answer="Kim"  style="top: 30%; left: 15%;"></div>
             </div>
 
             <!-- Ngân hàng tên để kéo -->
             <div class="p1-name-bank">
+                <div class="name-pill" draggable="true" data-name="Grace">Grace</div>
+                <div class="name-pill" draggable="true" data-name="Bill">Bill</div>
+                <div class="name-pill" draggable="true" data-name="Kim">Kim</div>
+                <div class="name-pill" draggable="true" data-name="Alice">Alice</div>
                 <div class="name-pill" draggable="true" data-name="Matt">Matt</div>
+                <div class="name-pill" draggable="true" data-name="Nick">Nick</div>
                 <div class="name-pill" draggable="true" data-name="Tom">Tom</div>
-                <div class="name-pill" draggable="true" data-name="Hugo">Hugo</div>
-                <div class="name-pill" draggable="true" data-name="Lucy">Lucy</div>
-                <div class="name-pill" draggable="true" data-name="Sue">Sue</div>
-                <div class="name-pill" draggable="true" data-name="Jill">Jill</div>
-                <div class="name-pill" draggable="true" data-name="Alex">Alex</div>
             </div>
         </div>
     </section>
@@ -224,7 +224,7 @@
         <p>Listen and write a name or a number in each answer. There are two examples.</p>
 
         <!-- Audio Part 2 -->
-        <audio id="audioP2" src="Media/audio/10. Starter 1 - Test 3 - Part 2.mp3"></audio>
+        <audio id="audioP2" src="Media/audio/Phần 2.mp3"></audio>
         <div class="yl-audio-player" data-audio="audioP2">
             <button class="yl-play-btn" type="button"></button>
             <span class="yl-time">00:00 / 00:00</span>
@@ -236,43 +236,44 @@
         <div class="p2-layout">
             <div class="p2-image-card">
                 <!-- sửa hình Part 2 -->
-                <img src="Media/images/Starters- LISTENING/s1t3p2.png" alt="Part 2 picture" class="main-img">
+                <img src="Media/images/Starters- LISTENING/p2.jpg" alt="Part 2 picture" class="main-img">
             </div>
 
             <div class="p2-questions">
                 <!-- Ví dụ – sửa câu hỏi + data-answer cho đúng đề của em -->
                 <div class="p2-row example">
-                    <span class="p2-label">Example: What is the boy's name?</span>
-                    <input type="text" value="Tom" disabled>
+                    <span class="p2-label">Example: What's the girl's name?</span>
+                    <input type="text" value="Pat" disabled>
                 </div>
 
                 <div class="p2-row example">
-                    <span class="p2-label">Example: How old is he?</span>
-                    <input type="text" value="11" disabled>
-                </div>
-
-                <div class="p2-row" data-answer="Ben">
-                    <span class="p2-label">1. What is Tom's friend's name?</span>
-                    <input type="text" id="p2q1" placeholder="name / number">
+                    <span class="p2-label">Example: How old is she?</span>
+                    <input type="text" value="9" disabled>
                 </div>
 
                 <div class="p2-row" data-answer="12">
-                    <span class="p2-label">2. How old is Tom's friend?</span>
+                    <span class="p2-label">1. 
+How many cousins has Pat got?</span>
+                    <input type="text" id="p2q1" placeholder="name / number">
+                </div>
+
+                <div class="p2-row" data-answer="D-U-C-K">
+                    <span class="p2-label">2. What is the name of Pat's favourite game?</span>
                     <input type="text" id="p2q2" placeholder="name / number">
                 </div>
 
-                <div class="p2-row" data-answer="5">
-                    <span class="p2-label">3. How many brothers has Tom's friend got?</span>
+                <div class="p2-row" data-answer="S-H-E-L-L">
+                    <span class="p2-label">3. Which beach does Pat like to go to?......Beach</span>
                     <input type="text" id="p2q3" placeholder="name / number">
                 </div>
 
-                <div class="p2-row" data-answer="18">
-                    <span class="p2-label">4. How many children are in Tom's class?</span>
+                <div class="p2-row" data-answer="20">
+                    <span class="p2-label">4. How many books has Pat got?</span>
                     <input type="text" id="p2q4" placeholder="name / number">
                 </div>
 
-                <div class="p2-row" data-answer="Hall">
-                    <span class="p2-label">5. What is the name of Tom's teacher? (Mrs ...)</span>
+                <div class="p2-row" data-answer="L-O-R-R-Y">
+                    <span class="p2-label">5. What is the teacher's name?  Mr.</span>
                     <input type="text" id="p2q5" placeholder="name / number">
                 </div>
             </div>
@@ -284,7 +285,7 @@
   <h2>PART 3 – Listen and tick (✓) the box. There is one example.</h2>
 
   <!-- Audio Part 3 -->
-  <audio id="audioP3" src="Media/audio/11. Starter 1 - Test 3 - Part 3.mp3"></audio>
+  <audio id="audioP3" src="Media/audio/Phần 3.mp3"></audio>
 
   <!-- AUDIO -->
   <div class="yl-audio-player" data-audio="audioP3">
@@ -301,14 +302,14 @@
       <h3 class="p3-left-title">Example</h3>
 
       <div class="p3-example">
-        <p class="p3-question-text"> Which does Kim want?</p>
+        <p class="p3-question-text">Where is Lucy now?</p>
 
         <div class="p3-example-options">
 
           <!-- A -->
           <label class="p3-option">
-            <input type="radio" disabled>
-            <span class="p3-img"><img src="Media/images/Starters- LISTENING/s1t3p3_a.png"></span>
+            <input type="radio" checked disabled>
+            <span class="p3-img"><img src="Media/images/Starters- LISTENING/p3a.jpg"></span>
             <span class="p3-letter-wrap">
               <span class="p3-bullet"></span>
               <span class="p3-letter">A</span>
@@ -317,8 +318,8 @@
 
           <!-- B -->
           <label class="p3-option">
-            <input type="radio" checked disabled>
-            <span class="p3-img"><img src="Media/images/Starters- LISTENING/s1t3p3_b.png"></span>
+            <input type="radio" disabled>
+            <span class="p3-img"><img src="Media/images/Starters- LISTENING/p3b.jpg"></span>
             <span class="p3-letter-wrap">
               <span class="p3-bullet"></span>
               <span class="p3-letter">B</span>
@@ -328,13 +329,12 @@
           <!-- C -->
           <label class="p3-option">
             <input type="radio" disabled>
-            <span class="p3-img"><img src="Media/images/Starters- LISTENING/s1t3p3_c.png"></span>
+            <span class="p3-img"><img src="Media/images/Starters- LISTENING/p3c.jpg"></span>
             <span class="p3-letter-wrap">
               <span class="p3-bullet"></span>
               <span class="p3-letter">C</span>
             </span>
           </label>
-
         </div>
       </div>
     </div>
@@ -347,25 +347,25 @@
 
       <!-- ==== Q1 ==== -->
       <div class="p3-card" data-q="1"> 
-        <p class="p3-q-title">1. What is Anna taking to school?</p>
+        <p class="p3-q-title">1.Who is Dad talking to on the phone?</p>
 
         <div class="p3-options-row">
 
           <label class="p3-option">
             <input type="radio" name="p3_q1" value="A">
-            <span class="p3-img"><img src="Media/images/Starters- LISTENING/s1t3p3_q1a.png"></span>
+            <span class="p3-img"><img src="Media/images/Starters- LISTENING/p31a.jpg"></span>
             <span class="p3-letter-wrap"><span class="p3-bullet"></span>A</span>
           </label>
 
           <label class="p3-option">
             <input type="radio" name="p3_q1" value="B">
-            <span class="p3-img"><img src="Media/images/Starters- LISTENING/s1t3p3_q1b.png"></span>
+            <span class="p3-img"><img src="Media/images/Starters- LISTENING/p31b.jpg"></span>
             <span class="p3-letter-wrap"><span class="p3-bullet"></span>B</span>
           </label>
 
           <label class="p3-option">
             <input type="radio" name="p3_q1" value="C">
-            <span class="p3-img"><img src="Media/images/Starters- LISTENING/s1t3p3_q1c.png"></span>
+            <span class="p3-img"><img src="Media/images/Starters- LISTENING/p31c.jpg"></span>
             <span class="p3-letter-wrap"><span class="p3-bullet"></span>C</span>
           </label>
 
@@ -373,25 +373,25 @@
       </div>
      <!-- ==== Q2 ==== -->
       <div class="p3-card" data-q="2"> 
-        <p class="p3-q-title">2. Which is Bill's dad?</p>
+        <p class="p3-q-title">2.What is the crocodile doing?</p>
 
         <div class="p3-options-row">
 
           <label class="p3-option">
             <input type="radio" name="p3_q2" value="A">
-            <span class="p3-img"><img src="Media/images/Starters- LISTENING/s1t3p3_q2a.png"></span>
+            <span class="p3-img"><img src="Media/images/Starters- LISTENING/p32a.jpg"></span>
             <span class="p3-letter-wrap"><span class="p3-bullet"></span>A</span>
           </label>
 
           <label class="p3-option">
             <input type="radio" name="p3_q2" value="B">
-            <span class="p3-img"><img src="Media/images/Starters- LISTENING/s1t3p3_q2b.png"></span>
+            <span class="p3-img"><img src="Media/images/Starters- LISTENING/p32a.jpg"></span>
             <span class="p3-letter-wrap"><span class="p3-bullet"></span>B</span>
           </label>
 
           <label class="p3-option">
             <input type="radio" name="p3_q2" value="C">
-            <span class="p3-img"><img src="Media/images/Starters- LISTENING/s1t3p3_q2c.png"></span>
+            <span class="p3-img"><img src="Media/images/Starters- LISTENING/p32c.jpg"></span>
             <span class="p3-letter-wrap"><span class="p3-bullet"></span>C</span>
           </label>
 
@@ -399,25 +399,25 @@
       </div>
       <!-- ==== Q3 ==== -->
       <div class="p3-card" data-q="3"> 
-        <p class="p3-q-title">3. What would Sam like to do?</p>
+        <p class="p3-q-title">3. Where are Hugo's pen?</p>
 
         <div class="p3-options-row">
 
           <label class="p3-option">
             <input type="radio" name="p3_q3" value="A">
-            <span class="p3-img"><img src="Media/images/Starters- LISTENING/s1t3p3_q3a.png"></span>
+            <span class="p3-img"><img src="Media/images/Starters- LISTENING/p33a.jpg"></span>
             <span class="p3-letter-wrap"><span class="p3-bullet"></span>A</span>
           </label>
 
           <label class="p3-option">
             <input type="radio" name="p3_q3" value="B">
-            <span class="p3-img"><img src="Media/images/Starters- LISTENING/s1t3p3_q3b.png"></span>
+            <span class="p3-img"><img src="Media/images/Starters- LISTENING/p33b.jpg"></span>
             <span class="p3-letter-wrap"><span class="p3-bullet"></span>B</span>
           </label>
 
           <label class="p3-option">
             <input type="radio" name="p3_q3" value="C">
-            <span class="p3-img"><img src="Media/images/Starters- LISTENING/s1t3p3_q3c.png"></span>
+            <span class="p3-img"><img src="Media/images/Starters- LISTENING/p33c.jpg"></span>
             <span class="p3-letter-wrap"><span class="p3-bullet"></span>C</span>
           </label>
 
@@ -425,25 +425,25 @@
       </div>
      <!-- ==== Q4 ==== -->
       <div class="p3-card" data-q="4"> 
-        <p class="p3-q-title">4. Which is Jill's bedroom?</p>
+        <p class="p3-q-title">4. Which boy is Sam?</p>
 
         <div class="p3-options-row">
 
           <label class="p3-option">
             <input type="radio" name="p3_q4" value="A">
-            <span class="p3-img"><img src="Media/images/Starters- LISTENING/s1t3p3_q4a.png"></span>
+            <span class="p3-img"><img src="Media/images/Starters- LISTENING/p34a.jpg"></span>
             <span class="p3-letter-wrap"><span class="p3-bullet"></span>A</span>
           </label>
 
           <label class="p3-option">
             <input type="radio" name="p3_q4" value="B">
-            <span class="p3-img"><img src="Media/images/Starters- LISTENING/s1t3p3_q4b.png"></span>
+            <span class="p3-img"><img src="Media/images/Starters- LISTENING/p34b.jpg"></span>
             <span class="p3-letter-wrap"><span class="p3-bullet"></span>B</span>
           </label>
 
           <label class="p3-option">
             <input type="radio" name="p3_q4" value="C">
-            <span class="p3-img"><img src="Media/images/Starters- LISTENING/s1t3p3_q4c.png"></span>
+            <span class="p3-img"><img src="Media/images/Starters- LISTENING/p34c.jpg"></span>
             <span class="p3-letter-wrap"><span class="p3-bullet"></span>C</span>
           </label>
 
@@ -451,25 +451,25 @@
       </div>
      <!-- ==== Q5 ==== -->
       <div class="p3-card" data-q="5"> 
-        <p class="p3-q-title">5. Which is Nick's brother?</p>
+        <p class="p3-q-title">5. Which is the girl's favourite picture?</p>
 
         <div class="p3-options-row">
 
           <label class="p3-option">
             <input type="radio" name="p3_q5" value="A">
-            <span class="p3-img"><img src="Media/images/Starters- LISTENING/s1t3p3_q5a.png"></span>
+            <span class="p3-img"><img src="Media/images/Starters- LISTENING/p35a.jpg"></span>
             <span class="p3-letter-wrap"><span class="p3-bullet"></span>A</span>
           </label>
 
           <label class="p3-option">
             <input type="radio" name="p3_q5" value="B">
-            <span class="p3-img"><img src="Media/images/Starters- LISTENING/s1t3p3_q5b.png"></span>
+            <span class="p3-img"><img src="Media/images/Starters- LISTENING/p35b.jpg"></span>
             <span class="p3-letter-wrap"><span class="p3-bullet"></span>B</span>
           </label>
 
           <label class="p3-option">
             <input type="radio" name="p3_q5" value="C">
-            <span class="p3-img"><img src="Media/images/Starters- LISTENING/s1t3p3_q5c.png"></span>
+            <span class="p3-img"><img src="Media/images/Starters- LISTENING/p35c.jpg"></span>
             <span class="p3-letter-wrap"><span class="p3-bullet"></span>C</span>
           </label>
 
@@ -489,7 +489,7 @@
         <p>Listen and choose the correct colour for each object. There is one example.</p>
 
         <!-- Audio Part 4 -->
-        <audio id="audioP4" src="Media/audio/12. Starter 1 - Test 3 - Part 4.mp3"></audio>
+        <audio id="audioP4" src="Media/audio/Phần 4.mp3"></audio>
         <div class="yl-audio-player" data-audio="audioP4">
             <button class="yl-play-btn" type="button"></button>
             <span class="yl-time">00:00 / 00:00</span>
@@ -503,28 +503,28 @@
             <div class="p4-left">
                 <div class="p4-image-card">
                     <!-- giữ nguyên tranh Part 4 -->
-                    <img src="Media/images/Starters- LISTENING/S1T3P4.png" alt="Part 4 picture">
+                    <img src="Media/images/Starters- LISTENING/p4.jpg" alt="Part 4 picture">
       <!-- PART 4 – DROP ZONES (fixed by answer key) -->
 
-<!-- 1. Roof – green -->
+<!-- 1. Colour pineapple in box – green -->
 <div class="p4-drop-zone" data-slot="1"
-     style="top: 9%; left: 46%; width: 4%; height: 4%;"></div>
+     style="top: 75%; left: 15%; width: 2%; height: 2%;"></div>
 
-<!-- 2. Wall – yellow -->
+<!-- 2. Colour pineapple under lemons – purple  -->
 <div class="p4-drop-zone" data-slot="2"
-     style="top: 40%; left: 26%; width: 4%; height: 4%;"></div>
+     style="top: 85%; left: 85%; width: 2%; height: 2%;"></div>
 
-<!-- 3. Dog – pink -->
+<!-- 3. Colour pineapple on computer – orange -->
 <div class="p4-drop-zone" data-slot="3"
-     style="top: 38%; left: 58%; width: 4%; height: 4%;"></div>
+     style="top: 42%; left: 87%; width: 2%; height: 2%;"></div>
 
-<!-- 4. Food in pot – brown -->
+<!-- 4. Colour pineapple between watermelons – blue -->
 <div class="p4-drop-zone" data-slot="4"
-     style="top: 72%; left: 20%; width: 4%; height: 4%;"></div>
+     style="top: 33%; left: 15%; width: 2%; height: 2%;"></div>
 
-<!-- 5. Boy’s shirt – red -->
+<!-- 5. Colour pineapple on board behind woman – red -->
 <div class="p4-drop-zone" data-slot="5"
-     style="top: 90%; left: 90%; width: 4%; height: 4%;"></div>
+     style="top: 12%; left: 53%; width: 2%; height: 2%;"></div>
 
                 </div>
             </div>
@@ -554,9 +554,9 @@
     </div>
 
     <!-- YELLOW -->
-    <div class="p4-crayon" data-color="yellow" style="--crayon-color:#eab308;">
-        <img src="Media/images/icons/yellow.png" alt="yellow crayon" class="p4-crayon-icon">
-        <span class="p4-crayon-label">yellow</span>
+    <div class="p4-crayon" data-color="Yellow" style="--crayon-color:#eab308;">
+        <img src="Media/images/icons/Yellow.png" alt="Yellow crayon" class="p4-crayon-icon">
+        <span class="p4-crayon-label">Yellow</span>
     </div>
 
     <!-- ORANGE -->
@@ -567,8 +567,8 @@
 
     <!-- LIGHT BLUE -->
     <div class="p4-crayon" data-color="lightblue" style="--crayon-color:#38bdf8;">
-        <img src="Media/images/icons/lightblue.png" alt="light blue crayon" class="p4-crayon-icon">
-        <span class="p4-crayon-label">light blue</span>
+        <img src="Media/images/icons/lightblue.png" alt="lightblue crayon" class="p4-crayon-icon">
+        <span class="p4-crayon-label">lightblue</span>
     </div>
 
     <!-- PINK -->
