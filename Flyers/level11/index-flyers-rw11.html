@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>YLE Flyers – Reading &amp; Writing – Level 11</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="flyers-rw-style.css" rel="stylesheet"/>
+<style>
+  /* Part 5: story on the left (replaces word bank) */
+  .flyers-rw5__story{
+    margin-top: 12px;
+    padding: 14px 14px 10px;
+    background: #fff7e6;
+    border: 2px solid #f0b400;
+    border-radius: 14px;
+    color: #222;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .flyers-rw5__storyTitle{
+    text-align: center;
+    font-weight: 800;
+    text-decoration: underline;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  .flyers-rw5__story p{ margin: 0 0 10px; }
+  .flyers-rw5__story p:last-child{ margin-bottom: 0; }
+
+  /* Part 2: illustration */
+  .flyers-rw2__leftIllustration{ margin: 10px 0 12px; }
+  .flyers-rw2__leftIllustration img{
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 14px;
+    border: 2px solid #cbd5e1;
+    background: #f8fafc;
+  }
+
+
+/* Example blanks (prefilled) */
+.flyers-blank.is-example[readonly]{
+  opacity: 1;
+  background: #fff;
+  color: inherit;
+  font-weight: 700;
+}
+</style>
+</head>
+<body>
+<div class="rw-shell">
+<header class="rw-header">
+<div class="rw-header-left">
+<h1>Level 11 – YLE Flyers – Reading &amp; Writing</h1>
+</div>
+<div class="rw-timer-shell">
+<div class="rw-timer-circle">
+<span id="rwTimer">40:00</span>
+</div>
+</div>
+</header>
+<main class="rw-main">
+<!-- ================= PART 1 (FLYERS) ================= -->
+<section class="rw-part flyers-rw1" data-part="1" id="part1">
+<h2 class="rw-part-title">Part 1</h2>
+<div class="flyers-rw1__layout">
+<!-- LEFT (sticky) -->
+<aside aria-label="Part 1 word box" class="flyers-rw1__left">
+<div class="flyers-rw1__leftSticky">
+<div class="flyers-rw1__leftCard">
+<div class="flyers-rw1__header">
+<div class="flyers-rw1__badge">PART 1</div>
+<div class="flyers-rw1__heading">Look and read. Choose the correct words and write them on the lines. There is one example.</div>
+</div>
+<div class="flyers-rw1__leftScroll">
+<div aria-label="Word bank" class="flyers-rw1__bank" role="table"><div class="flyers-rw1__bankRow"><div class="flyers-rw1__word" data-fill="factories">factories</div><div class="flyers-rw1__word" data-fill="glue">glue</div><div class="flyers-rw1__word" data-fill="a uniform">a uniform</div></div><div class="flyers-rw1__bankRow"><div class="flyers-rw1__word" data-fill="a subject">a subject</div><div class="flyers-rw1__word is-example" data-fill="a shelf">a shelf</div><div class="flyers-rw1__word" data-fill="castles">castles</div></div><div class="flyers-rw1__bankRow"><div class="flyers-rw1__word" data-fill="a stadium">a stadium</div><div class="flyers-rw1__word" data-fill="a timetable">a timetable</div><div class="flyers-rw1__word" data-fill="a hotel">a hotel</div></div><div class="flyers-rw1__bankRow"><div class="flyers-rw1__word" data-fill="a belt">a belt</div><div class="flyers-rw1__word" data-fill="a necklace">a necklace</div><div class="flyers-rw1__word" data-fill="a chemist">a chemist</div></div><div class="flyers-rw1__bankRow"><div class="flyers-rw1__word" data-fill="a theatre">a theatre</div><div class="flyers-rw1__word" data-fill="scissors">scissors</div><div class="flyers-rw1__word" data-fill="a dictionary">a dictionary</div></div></div>
+<div class="flyers-rw1__example">
+<div class="flyers-rw1__exampleTitle">Example:</div>
+<div class="flyers-rw1__exampleText">In stories, kings and queens usually live in these old buildings. <b>castles</b></div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<div aria-hidden="true" class="flyers-divider"></div>
+<!-- RIGHT (scroll) -->
+<section aria-label="Part 1 questions" class="flyers-rw1__right">
+<div class="flyers-rw1__rightScroll">
+<ol class="flyers-rw1__qs"><li>If you want to cut some paper you can use these. <input autocomplete="off" class="flyers-blank" data-answer="scissors" type="text" value=""/></li><li>You use this to repair things when they are broken. <input autocomplete="off" class="flyers-blank" data-answer="glue" type="text" value=""/></li><li>You can wear this around your trousers if they are too big. <input autocomplete="off" class="flyers-blank" data-answer="a belt" type="text" value=""/></li><li>These are usually large. People work in them and make things like cars. <input autocomplete="off" class="flyers-blank" data-answer="factories" type="text" value=""/></li><li>Students look at this to find out when their lessons start and end. <input autocomplete="off" class="flyers-blank" data-answer="a timetable" type="text" value=""/></li><li>Police officers and nurses have to put this on before they start work. <input autocomplete="off" class="flyers-blank" data-answer="a uniform" type="text" value=""/></li><li>Actors work on a stage in this place. <input autocomplete="off" class="flyers-blank" data-answer="a theatre" type="text" value=""/></li><li>You can use this to help you understand and spell words. <input autocomplete="off" class="flyers-blank" data-answer="a dictionary" type="text" value=""/></li><li>People go here to watch football matches or sometimes to see a pop concert. <input autocomplete="off" class="flyers-blank" data-answer="a stadium" type="text" value=""/></li><li>When you are on holiday you might stay in one of these. <input autocomplete="off" class="flyers-blank" data-answer="a hotel" type="text" value=""/></li></ol>
+</div>
+</section>
+</div>
+</section>
+<!-- ================= PART 2 (FLYERS) ================= -->
+<section class="rw-part flyers-rw2" data-part="2" id="part2">
+<h2 class="rw-part-title">Part 2</h2>
+<div class="flyers-rw2__layout">
+<!-- LEFT (sticky) -->
+<aside aria-label="Part 2 options" class="flyers-rw2__left">
+<div class="flyers-rw2__leftSticky">
+<div class="flyers-rw2__leftCard">
+<div class="flyers-rw2__header">
+<div class="flyers-rw2__badge">PART 2</div>
+<div class="flyers-rw2__heading">Helen is talking to her new friend Michael. Helen is asking Michael about his hobby, cooking. What does Michael say?</div>
+</div>
+<div class="flyers-rw2__leftScroll">
+<div aria-label="Part 2 illustration" class="flyers-rw2__leftIllustration">
+<img alt="Part 2 illustration" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22800%22%20height%3D%22420%22%3E%0A%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22%23f1f5f9%22/%3E%0A%3Crect%20x%3D%2224%22%20y%3D%2224%22%20width%3D%22752%22%20height%3D%22372%22%20rx%3D%2224%22%20fill%3D%22%23ffffff%22%20stroke%3D%22%23cbd5e1%22%20stroke-width%3D%224%22/%3E%0A%3Ctext%20x%3D%2250%25%22%20y%3D%2248%25%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2228%22%20fill%3D%22%2364748b%22%3EIllustration%20not%20found%3C/text%3E%0A%3Ctext%20x%3D%2250%25%22%20y%3D%2258%25%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2218%22%20fill%3D%22%2394a3b8%22%3EAdd%20image%20to%3A%20Media/images/Flyers-RW/1ee.jpg%3C/text%3E%0A%3C/svg%3E'" src="Media/images/Flyers- RW/f4t2r2p2.png"/>
+</div>
+<div aria-label="Options A to H" class="flyers-rw2__options"><div class="flyers-rw2__opt" data-fill="A"><b>A.</b> From the videos that I watch online.</div><div class="flyers-rw2__opt is-example" data-fill="B"><b>B.</b> My grandma did. She makes great cakes. (Example)</div><div class="flyers-rw2__opt" data-fill="C"><b>C.</b> Of course. Why don’t you come to my house tomorrow?</div><div class="flyers-rw2__opt" data-fill="D"><b>D.</b> It’s fun, and I enjoy eating all the things I make.</div><div class="flyers-rw2__opt" data-fill="E"><b>E.</b> Perhaps. I burnt them all!</div><div class="flyers-rw2__opt" data-fill="F"><b>F.</b> Biscuits. They’re easy to make and they always taste good.</div><div class="flyers-rw2__opt" data-fill="G"><b>G.</b> Yes. It tasted like pizza.</div><div class="flyers-rw2__opt" data-fill="H"><b>H.</b> Sometimes, but I do a lot by myself.</div></div>
+<div class="flyers-rw2__example">
+<div class="flyers-rw2__exampleTitle">Example:</div>
+<div class="flyers-rw2__exampleText"><div class="flyers-rw2__line"><span aria-hidden="true" class="flyers-avatar" data-avatar="Helen">Helen:</span> Who taught you to cook, Michael?</div><div class="flyers-rw2__line"><span aria-hidden="true" class="flyers-avatar" data-avatar="Michael">Michael:</span> <input aria-disabled="true" class="small flyers-blank is-example" data-answer="B" disabled="true" type="text" value="B"/></div></div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<div aria-hidden="true" class="flyers-divider"></div>
+<!-- RIGHT (scroll conversation) -->
+<section aria-label="Part 2 conversation" class="flyers-rw2__right">
+<div class="flyers-rw2__rightScroll">
+<div class="flyers-rw2__dialogue"><div class="flyers-rw2__line"><span aria-hidden="true" class="flyers-avatar" data-avatar="Helen">Helen:</span> Why do you like cooking?</div><div class="flyers-rw2__line"><span aria-hidden="true" class="flyers-avatar" data-avatar="Michael">Michael:</span> <input autocomplete="off" class="flyers-blank small" data-answer="D" maxlength="1" placeholder="A-H" type="text" value=""/></div><div class="flyers-rw2__line"><span aria-hidden="true" class="flyers-avatar" data-avatar="Helen">Helen:</span> Where do you get ideas about new things to cook?</div><div class="flyers-rw2__line"><span aria-hidden="true" class="flyers-avatar" data-avatar="Michael">Michael:</span> <input autocomplete="off" class="flyers-blank small" data-answer="A" maxlength="1" placeholder="A-H" type="text" value=""/></div><div class="flyers-rw2__line"><span aria-hidden="true" class="flyers-avatar" data-avatar="Helen">Helen:</span> Do your parents help you cook?</div><div class="flyers-rw2__line"><span aria-hidden="true" class="flyers-avatar" data-avatar="Michael">Michael:</span> <input autocomplete="off" class="flyers-blank small" data-answer="H" maxlength="1" placeholder="A-H" type="text" value=""/></div><div class="flyers-rw2__line"><span aria-hidden="true" class="flyers-avatar" data-avatar="Helen">Helen:</span> What’s your favourite thing to cook?</div><div class="flyers-rw2__line"><span aria-hidden="true" class="flyers-avatar" data-avatar="Michael">Michael:</span> <input autocomplete="off" class="flyers-blank small" data-answer="F" maxlength="1" placeholder="A-H" type="text" value=""/></div><div class="flyers-rw2__line"><span aria-hidden="true" class="flyers-avatar" data-avatar="Helen">Helen:</span> Can you teach me to make a cake?</div><div class="flyers-rw2__line"><span aria-hidden="true" class="flyers-avatar" data-avatar="Michael">Michael:</span> <input autocomplete="off" class="flyers-blank small" data-answer="C" maxlength="1" placeholder="A-H" type="text" value=""/></div></div>
+</div>
+</section>
+</div>
+</section>
+<!-- ================= PART 3 (FLYERS) ================= -->
+<section class="rw-part flyers-rw3" data-part="3" id="part3">
+<div class="flyers-rw3__layout">
+<!-- LEFT (sticky) -->
+<aside aria-label="Part 3 word box" class="flyers-rw3__left">
+<div class="flyers-rw3__leftSticky">
+<div class="flyers-rw3__leftCard">
+<div class="flyers-rw3__header">
+<div class="flyers-rw3__badge">PART 3</div>
+<div class="flyers-rw3__heading">Read the story. Choose a word from the box. Write the correct word next to numbers 1–5. There is one example.</div>
+</div>
+<div class="flyers-rw3__leftScroll">
+<div aria-label="Part 3 illustration" class="flyers-rw3__illustration">
+<img alt="Part 3 illustration" class="js-p3-illustration" data-default-src="Media/images/Flyers- RW/f4t2r2p3.png" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22800%22%20height%3D%22420%22%3E%0A%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22%23f1f5f9%22/%3E%0A%3Crect%20x%3D%2224%22%20y%3D%2224%22%20width%3D%22752%22%20height%3D%22372%22%20rx%3D%2224%22%20fill%3D%22%23ffffff%22%20stroke%3D%22%23cbd5e1%22%20stroke-width%3D%224%22/%3E%0A%3Ctext%20x%3D%2250%25%22%20y%3D%2248%25%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2228%22%20fill%3D%22%2364748b%22%3EIllustration%20not%20found%3C/text%3E%0A%3Ctext%20x%3D%2250%25%22%20y%3D%2258%25%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2218%22%20fill%3D%22%2394a3b8%22%3EAdd%20image%20to%3A%20Media/images/Flyers-RW/FRWP3_picture.png%3C/text%3E%0A%3C/svg%3E'" src="Media/images/Flyers-RW/FRWP3_picture.png"/>
+</div>
+<div aria-label="Word bank" class="flyers-rw3__bank"><div class="flyers-rw3__bankExample"><div class="flyers-rw3__word is-example" data-fill="built">built</div></div><div class="flyers-rw3__bankGrid"><div class="flyers-rw3__word" data-fill="furry">furry</div><div class="flyers-rw3__word" data-fill="keeping">keeping</div><div class="flyers-rw3__word" data-fill="hurried">hurried</div><div class="flyers-rw3__word" data-fill="interested">interested</div><div class="flyers-rw3__word" data-fill="entrance">entrance</div><div class="flyers-rw3__word" data-fill="collect">collect</div><div class="flyers-rw3__word" data-fill="torch">torch</div><div class="flyers-rw3__word" data-fill="missing">missing</div><div class="flyers-rw3__word" data-fill="sound">sound</div></div></div>
+</div>
+</div>
+</div>
+</aside>
+<div aria-hidden="true" class="flyers-divider"></div>
+<!-- RIGHT (scroll) -->
+<section aria-label="Part 3 story" class="flyers-rw3__right">
+<div class="flyers-rw3__rightScroll">
+<div class="flyers-rw3__story"><p>Harry and his family went to the beach last week. In the morning, Harry and his sister Katy <b>built</b> sand castles. After lunch, Mum said, ‘There are some caves on this beach. Would you like to explore them?’</p><p>‘Yes,’ said Harry, but Katy decided to stay with her father. ‘We’re going to (1) <input aria-label="Blank 1" autocomplete="off" class="flyers-blank flyers-blank-inline" data-answer="collect" type="text" value=""/> some shells,’ she said.</p><p>After a short walk, Mum and Harry found the (2) <input aria-label="Blank 2" autocomplete="off" class="flyers-blank flyers-blank-inline" data-answer="entrance" type="text" value=""/> to the caves. They climbed over the rocks and went inside. ‘I can’t see anything because it’s so dark,’ said Harry. ‘Don’t worry,’ said Mum. ‘I’ve got a (3) <input aria-label="Blank 3" autocomplete="off" class="flyers-blank flyers-blank-inline" data-answer="torch" type="text" value=""/>.’ She turned it on. Suddenly Harry shouted ‘What are all those (4) <input aria-label="Blank 4" autocomplete="off" class="flyers-blank flyers-blank-inline" data-answer="furry" type="text" value=""/> creatures flying around?’ Mum started laughing. ‘They’re bats!’ she said. ‘They won’t hurt you. They’re amazing!’</p><p>They (5) <input aria-label="Blank 5" autocomplete="off" class="flyers-blank flyers-blank-inline" data-answer="hurried" type="text" value=""/> back to Dad and Katy. ‘We saw a hundred bats!’ shouted Harry. ‘Well, we’ve got two hundred wonderful shells!’ said Katy.</p><div class="flyers-rw3__q6"><div class="flyers-rw3__q6Title">(6) Now choose the best name for the story. Tick one box.
+    <input autocomplete="off" class="flyers-blank small" data-answer="C" maxlength="1" placeholder="A-C" type="text" value=""/></div><div aria-label="Options A to C" class="flyers-rw3__opts"><div class="flyers-rw3__opt" data-fill="A"><b>A.</b> Katy gets an amazing new phone</div><div class="flyers-rw3__opt" data-fill="B"><b>B.</b> Katy needs to talk to her friends</div><div class="flyers-rw3__opt" data-fill="C"><b>C.</b> Katy sings in a special concert</div></div></div></div>
+</div>
+</section>
+</div>
+</section>
+<!-- ================= PART 4 (FLYERS) ================= -->
+<section class="rw-part flyers-rw4" data-part="4" id="part4">
+<h2 class="rw-part-title">Part 4</h2>
+<div class="flyers-rw4__layout">
+<!-- LEFT (scroll) -->
+<aside aria-label="Part 4 word box" class="flyers-rw4__left">
+<div class="flyers-rw4__leftCard">
+<div class="flyers-rw4__header">
+<div class="flyers-rw4__badge">PART 4</div>
+<div class="flyers-rw4__heading">Read the text. Choose the right words and write them on the lines.</div>
+</div>
+<div class="flyers-rw4__leftScroll">
+<div aria-label="Part 4 illustration" class="flyers-rw4__illustration">
+<img alt="Part 4 illustration" class="js-p4-illustration" data-default-src="Media/images/Flyers- RW/f4t2r2p4.png" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22800%22%20height%3D%22420%22%3E%0A%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22%23f1f5f9%22/%3E%0A%3Crect%20x%3D%2224%22%20y%3D%2224%22%20width%3D%22752%22%20height%3D%22372%22%20rx%3D%2224%22%20fill%3D%22%23ffffff%22%20stroke%3D%22%23cbd5e1%22%20stroke-width%3D%224%22/%3E%0A%3Ctext%20x%3D%2250%25%22%20y%3D%2248%25%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2228%22%20fill%3D%22%2364748b%22%3EIllustration%20not%20found%3C/text%3E%0A%3Ctext%20x%3D%2250%25%22%20y%3D%2258%25%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2218%22%20fill%3D%22%2394a3b8%22%3EAdd%20image%20to%3A%20Media/images/Flyers-RW/FRWP4_picture.png%3C/text%3E%0A%3C/svg%3E'" src="Media/images/Flyers-RW/FRWP4_picture.png"/>
+</div>
+<div aria-label="Choices table" class="flyers-rw4__bank">
+<div class="flyers-rw4__table"><div class="flyers-rw4__row is-head"><div class="flyers-rw4__cell is-label">Example</div><div class="flyers-rw4__cell flyers-rw4__choice" data-fill="which">which</div><div class="flyers-rw4__cell flyers-rw4__choice" data-fill="it">it</div><div class="flyers-rw4__cell flyers-rw4__choice" data-fill="where">where</div></div><div class="flyers-rw4__row"><div class="flyers-rw4__cell is-label">1</div><div class="flyers-rw4__cell flyers-rw4__choice" data-fill="large">large</div><div class="flyers-rw4__cell flyers-rw4__choice" data-fill="larger">larger</div><div class="flyers-rw4__cell flyers-rw4__choice" data-fill="largest">largest</div></div><div class="flyers-rw4__row"><div class="flyers-rw4__cell is-label">2</div><div class="flyers-rw4__cell flyers-rw4__choice" data-fill="so">so</div><div class="flyers-rw4__cell flyers-rw4__choice" data-fill="while">while</div><div class="flyers-rw4__cell flyers-rw4__choice" data-fill="after">after</div></div><div class="flyers-rw4__row"><div class="flyers-rw4__cell is-label">3</div><div class="flyers-rw4__cell flyers-rw4__choice" data-fill="ever">ever</div><div class="flyers-rw4__cell flyers-rw4__choice" data-fill="instead">instead</div><div class="flyers-rw4__cell flyers-rw4__choice" data-fill="also">also</div></div><div class="flyers-rw4__row"><div class="flyers-rw4__cell is-label">4</div><div class="flyers-rw4__cell flyers-rw4__choice" data-fill="later">later</div><div class="flyers-rw4__cell flyers-rw4__choice" data-fill="usually">usually</div><div class="flyers-rw4__cell flyers-rw4__choice" data-fill="yet">yet</div></div><div class="flyers-rw4__row"><div class="flyers-rw4__cell is-label">5</div><div class="flyers-rw4__cell flyers-rw4__choice" data-fill="before">before</div><div class="flyers-rw4__cell flyers-rw4__choice" data-fill="during">during</div><div class="flyers-rw4__cell flyers-rw4__choice" data-fill="since">since</div></div><div class="flyers-rw4__row"><div class="flyers-rw4__cell is-label">6</div><div class="flyers-rw4__cell flyers-rw4__choice" data-fill="far">far</div><div class="flyers-rw4__cell flyers-rw4__choice" data-fill="soon">soon</div><div class="flyers-rw4__cell flyers-rw4__choice" data-fill="much">much</div></div><div class="flyers-rw4__row"><div class="flyers-rw4__cell is-label">7</div><div class="flyers-rw4__cell flyers-rw4__choice" data-fill="on">on</div><div class="flyers-rw4__cell flyers-rw4__choice" data-fill="in">in</div><div class="flyers-rw4__cell flyers-rw4__choice" data-fill="by">by</div></div><div class="flyers-rw4__row"><div class="flyers-rw4__cell is-label">8</div><div class="flyers-rw4__cell flyers-rw4__choice" data-fill="it">it</div><div class="flyers-rw4__cell flyers-rw4__choice" data-fill="us">us</div><div class="flyers-rw4__cell flyers-rw4__choice" data-fill="them">them</div></div><div class="flyers-rw4__row"><div class="flyers-rw4__cell is-label">9</div><div class="flyers-rw4__cell flyers-rw4__choice" data-fill="remembered">remembered</div><div class="flyers-rw4__cell flyers-rw4__choice" data-fill="remember">remember</div><div class="flyers-rw4__cell flyers-rw4__choice" data-fill="remembers">remembers</div></div><div class="flyers-rw4__row"><div class="flyers-rw4__cell is-label">10</div><div class="flyers-rw4__cell flyers-rw4__choice" data-fill="being">being</div><div class="flyers-rw4__cell flyers-rw4__choice" data-fill="be">be</div><div class="flyers-rw4__cell flyers-rw4__choice" data-fill="been">been</div></div></div>
+</div>
+</div>
+</div>
+</aside>
+<div aria-hidden="true" class="flyers-divider"></div>
+<!-- RIGHT (scroll) -->
+<section aria-label="Part 4 text" class="flyers-rw4__right">
+<div class="flyers-rw4__rightScroll">
+<div class="flyers-rw4__text"><h3 class="flyers-rw4__title">Swans</h3><p>A swan is a bird <b>which</b> always lives near water.</p><p>It is like a duck, but much <input aria-label="Blank 1" autocomplete="off" class="flyers-blank flyers-blank-inline" data-answer="larger" type="text" value=""/>, with a very long neck.</p><p>Swans have heavy bodies, but their wings are very strong <input aria-label="Blank 2" autocomplete="off" class="flyers-blank flyers-blank-inline" data-answer="so" type="text" value=""/> they can fly well.</p><p>Swans can sleep in or out of the water, and they can <input aria-label="Blank 3" autocomplete="off" class="flyers-blank flyers-blank-inline" data-answer="also" type="text" value=""/> go to sleep when they are standing on one leg!</p><p>Swans live in several different countries. They are <input aria-label="Blank 4" autocomplete="off" class="flyers-blank flyers-blank-inline" data-answer="usually" type="text" value=""/> white, but in some places there are black ones too.</p><p>Most swans fly to warmer countries <input aria-label="Blank 5" autocomplete="off" class="flyers-blank flyers-blank-inline" data-answer="before" type="text" value=""/> the winter starts. This is called ‘migration’.</p><p>A baby swan is called a ‘cygnet’. Cygnets are grey and can swim as <input aria-label="Blank 6" autocomplete="off" class="flyers-blank flyers-blank-inline" data-answer="soon" type="text" value=""/> as they come out of their eggs. A mother swan often carries her young cygnets <input aria-label="Blank 7" autocomplete="off" class="flyers-blank flyers-blank-inline" data-answer="on" type="text" value=""/> her back when she’s swimming. She does this to keep <input aria-label="Blank 8" autocomplete="off" class="flyers-blank flyers-blank-inline" data-answer="them" type="text" value=""/> safe.</p><p>Swans are clever birds. If a person does something unkind to a swan, it will <input aria-label="Blank 9" autocomplete="off" class="flyers-blank flyers-blank-inline" data-answer="remember" type="text" value=""/> that person. You shouldn’t go too near to a swan – they can sometimes <input aria-label="Blank 10" autocomplete="off" class="flyers-blank flyers-blank-inline" data-answer="be" type="text" value=""/> dangerous.</p></div></div>
+</section></div>
+</section><section class="rw-part flyers-rw5" data-part="5" id="part5">
+<h2 class="rw-part-title">Part 5</h2>
+<div class="flyers-rw5__layout">
+<!-- LEFT (scroll) -->
+<aside aria-label="Part 5 word box" class="flyers-rw5__left">
+<div class="flyers-rw5__leftCard">
+<div class="flyers-rw5__header">
+<div class="flyers-rw5__badge">PART 5</div>
+<div class="flyers-rw5__heading">Look at the picture and read the story. Write some words to complete the sentences about the story. You can use 1, 2, 3 or 4 words.</div>
+</div>
+<div class="flyers-rw5__leftScroll">
+<div aria-label="Part 5 illustration" class="flyers-rw5__illustration">
+<img alt="Part 5 illustration" class="js-p5-illustration" data-default-src="Media/images/Flyers- RW/f4t2r2p5.png" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22800%22%20height%3D%22420%22%3E%0A%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22%23f1f5f9%22/%3E%0A%3Crect%20x%3D%2224%22%20y%3D%2224%22%20width%3D%22752%22%20height%3D%22372%22%20rx%3D%2224%22%20fill%3D%22%23ffffff%22%20stroke%3D%22%23cbd5e1%22%20stroke-width%3D%224%22/%3E%0A%3Ctext%20x%3D%2250%25%22%20y%3D%2248%25%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2228%22%20fill%3D%22%2364748b%22%3EIllustration%20not%20found%3C/text%3E%0A%3Ctext%20x%3D%2250%25%22%20y%3D%2258%25%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2218%22%20fill%3D%22%2394a3b8%22%3EAdd%20image%20to%3A%20Media/images/Flyers-RW/FRWP5_picture.png%3C/text%3E%0A%3C/svg%3E'" src="Media/images/Flyers-RW/FRWP5_picture.png"/>
+</div>
+<div aria-label="Part 5 story" class="flyers-rw5__story"><div class="flyers-rw5__storyTitle">Emma wins a competition</div><p class="flyers-rw5__storyP"></p><p>Emma was bored. It was Saturday afternoon and all her friends were busy. Then her mum showed her the newspaper. ‘Look!’ she said. There was some information about an art competition. The post office wanted children to design a new stamp. ‘It says you should send them your best picture of an insect,’ said Mum.</p><p>Emma decided to enter the competition. ‘I’ll do a picture of a butterfly,’ she said. She used lots of different colours and some special silver paint in her picture. She felt pleased with it. When she finished, Mum gave her a huge brown envelope. Emma put the picture inside. ‘I’ll send it tomorrow,’ said Mum.</p><p>During the next week, Emma had lots of things to do, and she forgot about the competition. Then one day, when she came home from school, Mum said, ‘There’s a letter for you.’ Emma didn’t often get letters. She sat down, opened the envelope and read the letter. Then she jumped up and shouted ‘I’ve won the competition!’ She was very excited.</p><p>A few days later, a journalist came to Emma’s house. She asked Emma some questions about her picture. There was a photographer with the journalist. He took some photos of Emma and her design.</p><p>Emma’s prize for winning the competition was some beautiful pencils, and she thinks it is amazing to see her stamp on everyone’s letters.</p><p class="flyers-rw5__storyP">He was climbing a mountain. He was so high, there were clouds below him. Above him, he saw an eagle’s nest in a hole in the rock. There were two white eggs inside. David didn’t touch them, but when his right hand was near to the nest, an eagle appeared. Its wings were enormous. That was scary!</p><p class="flyers-rw5__storyP">Then David saw the entrance to a really deep, dark cave. He moved carefully and quietly past it but then a huge brown bear jumped out and made a frightening noise. David hurried up the mountain. That bear had big teeth and very strong legs.</p><p class="flyers-rw5__storyP">When David got to the top of the mountain, he saw some grass and lay down on it. He was really tired and was soon asleep. Then he heard someone say, ‘Wake up, David. Wake up!’</p><p class="flyers-rw5__storyP">David opened his eyes and saw his mother.</p><p class="flyers-rw5__storyP">‘I had another amazing dream about a mountain, Mum,’ he said.</p><p class="flyers-rw5__storyP">‘That’s strange!’ David’s mother answered. ‘Because it’s the first day of your summer holidays today and we’re going to do something very special.’</p><p class="flyers-rw5__storyP">‘What?’ asked David.</p><p class="flyers-rw5__storyP">‘We’re going to go on a trip!’</p><p class="flyers-rw5__storyP">‘Where to?’ asked David.</p><p class="flyers-rw5__storyP">‘The mountains! Dad says we might see an eagle!’</p><p class="flyers-rw5__storyP">‘And a bear?’ David laughed.</p></div>
+</div>
+</div>
+</aside>
+<div aria-hidden="true" class="flyers-divider"></div>
+<!-- RIGHT (scroll) -->
+<section aria-label="Part 5 story" class="flyers-rw5__right">
+<div class="flyers-rw5__rightScroll">
+<div class="flyers-rw5__examples">
+<div class="flyers-rw5__subhead">Examples</div>
+<div class="flyers-rw5__line">Emma was feeling bored because <input class="flyers-blank flyers-blank-inline is-example" data-answer="her friends were busy" placeholder="Example" readonly="True" tabindex="-1" type="text" value="her friends were busy"/>.</div>
+<div class="flyers-rw5__line">Emma’s mum found some information in a <input class="flyers-blank flyers-blank-inline is-example" data-answer="newspaper" placeholder="Example" readonly="True" tabindex="-1" type="text" value="newspaper"/> about a competition.</div>
+</div>
+<div class="flyers-rw5__questions">
+<div class="flyers-rw5__subhead">Questions</div>
+<div class="flyers-rw5__q"><p>To enter the competition, children needed to design a stamp with an <input autocomplete="off" class="flyers-blank flyers-blank-inline" data-answer="insect" inputmode="latin" maxlength="60" placeholder="..." type="text" value=""/>.</p></div>
+<div class="flyers-rw5__q"><p>Emma decided to draw a <input autocomplete="off" class="flyers-blank flyers-blank-inline" data-answer="butterfly" inputmode="latin" maxlength="60" placeholder="..." type="text" value=""/>.</p></div>
+<div class="flyers-rw5__q"><p>Emma liked the colours and the <input autocomplete="off" class="flyers-blank flyers-blank-inline" data-answer="paint||silver paint||special paint||special silver paint" inputmode="latin" maxlength="60" placeholder="..." type="text" value=""/>.</p></div>
+<div class="flyers-rw5__q"><p>Emma <input autocomplete="off" class="flyers-blank flyers-blank-inline" data-answer="forgot about the competition||forgot about it" inputmode="latin" maxlength="60" placeholder="..." type="text" value=""/>.</p></div>
+<div class="flyers-rw5__q"><p>When she read the letter about winning the competition, Emma felt <input autocomplete="off" class="flyers-blank flyers-blank-inline" data-answer="excited||very excited" inputmode="latin" maxlength="60" placeholder="..." type="text" value=""/>.</p></div>
+<div class="flyers-rw5__q"><p>A journalist and a <input autocomplete="off" class="flyers-blank flyers-blank-inline" data-answer="photographer" inputmode="latin" maxlength="60" placeholder="..." type="text" value=""/>.</p></div>
+<div class="flyers-rw5__q"><p>Emma won <input autocomplete="off" class="flyers-blank flyers-blank-inline" data-answer="pencils||beautiful pencils||some pencils||some beautiful pencils||first prize||the first prize" inputmode="latin" maxlength="60" placeholder="..." type="text" value=""/> in the competition, and loves seeing her stamp on letters.</p></div>
+</div>
+</div>
+</section>
+</div>
+</section><section class="rw-part flyers-rw6" data-part="6" id="part6">
+<h2 class="rw-part-title">Part 6</h2>
+<div class="flyers-rw6__layout">
+<!-- LEFT (scroll) -->
+<aside aria-label="Part 6 left panel" class="flyers-rw6__left">
+<div class="flyers-rw6__leftCard">
+<div class="flyers-rw6__header">
+<div class="flyers-rw6__badge">PART 6</div>
+<div class="flyers-rw6__heading">Read the diary and write the missing words. Write one word on each line.</div>
+</div>
+<div class="flyers-rw6__leftScroll">
+<div aria-label="Part 6 illustration" class="flyers-rw6__illustration">
+<img alt="Part 6 illustration" class="js-p6-illustration" data-default-src="Media/images/Flyers- RW/f4t2r2p6.png" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22800%22%20height%3D%22420%22%3E%0A%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22%23f1f5f9%22/%3E%0A%3Crect%20x%3D%2224%22%20y%3D%2224%22%20width%3D%22752%22%20height%3D%22372%22%20rx%3D%2224%22%20fill%3D%22%23ffffff%22%20stroke%3D%22%23cbd5e1%22%20stroke-width%3D%224%22/%3E%0A%3Ctext%20x%3D%2250%25%22%20y%3D%2248%25%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2228%22%20fill%3D%22%2364748b%22%3EIllustration%20not%20found%3C/text%3E%0A%3Ctext%20x%3D%2250%25%22%20y%3D%2258%25%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2218%22%20fill%3D%22%2394a3b8%22%3EAdd%20image%20to%3A%20Media/images/Flyers-RW/FRWP6_picture.png%3C/text%3E%0A%3C/svg%3E'" src="Media/images/Flyers-RW/FRWP6_picture.png"/>
+</div>
+<!-- Word bank removed for Part 6 (students type answers directly) -->
+</div>
+</div>
+</aside>
+<div aria-hidden="true" class="flyers-divider"></div>
+<!-- RIGHT (scroll) -->
+<section aria-label="Part 6 diary" class="flyers-rw6__right">
+<div class="flyers-rw6__rightScroll">
+<div class="flyers-rw6__letter"><div class="flyers-rw6__diaryDay">Today I played football for my school team. I <span class="flyers-rw6__exampleAnswer">have</span> played for the team since the school year started.</div><p class="flyers-rw6__p"><span class="flyers-rw6__num">1</span>There <input autocomplete="off" class="flyers-blank flyers-blank-inline" data-answer="are||were" inputmode="latin" maxlength="20" placeholder="1" type="text" value=""/> five of us in the football team.</p><p class="flyers-rw6__p"><span class="flyers-rw6__num">2</span>The match was at another school and we went there <input autocomplete="off" class="flyers-blank flyers-blank-inline" data-answer="by" inputmode="latin" maxlength="20" placeholder="2" type="text" value=""/> bus.</p><p class="flyers-rw6__p"><span class="flyers-rw6__num">3</span>I felt <input autocomplete="off" class="flyers-blank flyers-blank-inline" data-answer="a" inputmode="latin" maxlength="20" placeholder="3" type="text" value=""/> bit worried, but the other players on the team helped me feel better.</p><p class="flyers-rw6__p"><span class="flyers-rw6__num">4</span>We played really well. I <input autocomplete="off" class="flyers-blank flyers-blank-inline" data-answer="fell" inputmode="latin" maxlength="20" placeholder="4" type="text" value=""/> over in the middle of the match, but it didn’t hurt.</p><p class="flyers-rw6__p"><span class="flyers-rw6__num">5</span>Then I scored a <input autocomplete="off" class="flyers-blank flyers-blank-inline" data-answer="goal" inputmode="latin" maxlength="20" placeholder="5" type="text" value=""/>, and my friend Sarah scored two more. It was a great match.</p></div></div>
+</section></div>
+</section>
+</main></div>
+<!-- ================= PART 5 (FLYERS) ================= -->
+<!-- ================= PART 6 (FLYERS) ================= -->
+<footer class="rw-footer">
+<div class="rw-footer-inner">
+<button class="rw-nav-btn" id="btnPrev" type="button"><span class="rw-arrow">‹</span></button>
+<button class="rw-nav-btn" id="btnNext" type="button"><span class="rw-arrow">›</span></button>
+</div>
+</footer>
+<div class="rw-submit-row">
+<button class="rw-submit-btn" id="btnSubmitRW" type="button">Nộp toàn bài</button>
+</div>
+<div class="rw-confirm-overlay" id="confirmSubmit">
+<div class="rw-confirm-modal">
+<button class="rw-confirm-close" type="button">×</button>
+<div class="rw-confirm-title">THÔNG BÁO</div>
+<p class="rw-confirm-message">Bạn có chắc chắn muốn nộp bài thi không?</p>
+<button class="rw-confirm-submit" type="button">NỘP BÀI</button>
+</div>
+</div>
+<div class="shield-overlay hidden" id="shieldResult">
+<div class="shield-modal">
+<button class="shield-close" type="button">×</button>
+<h2>Chúc mừng bạn đã đạt được</h2>
+<div class="shield-icons" id="shieldIcons"></div>
+<p class="shield-count"><span id="shieldCount">0</span> khiên</p>
+</div>
+</div>
+<audio id="shieldSound" preload="auto" src="Media/audio/congrats.mp3"></audio>
+<script src="flyers-rw-script.js"></script>
+<script>
+/* Patch navigation to support Part 1–6 reliably (and avoid blank Part 5/6). */
+(function(){
+  function ready(fn){ if(document.readyState!=='loading') fn(); else document.addEventListener('DOMContentLoaded', fn); }
+  ready(function(){
+    var parts = Array.prototype.slice.call(document.querySelectorAll('section.rw-part'));
+    if(!parts.length) return;
+
+    function getIndexFromHash(){
+      var h = (location.hash||'').replace('#','');
+      if(!h) return 0;
+      var idx = parts.findIndex(function(p){ return p.id === h; });
+      return idx >= 0 ? idx : 0;
+    }
+
+    function showByIndex(idx){
+      if(idx < 0) idx = 0;
+      if(idx >= parts.length) idx = parts.length-1;
+      parts.forEach(function(p,i){ p.hidden = (i !== idx); });
+      // keep hash in sync (so #part5 works)
+      var id = parts[idx].id;
+      if(id && location.hash !== '#'+id){
+        history.replaceState(null, '', '#'+id);
+      }
+    }
+
+    var btnPrev = document.getElementById('btnPrev');
+    var btnNext = document.getElementById('btnNext');
+
+    // Replace existing handlers (if any)
+    if(btnPrev) btnPrev.onclick = function(){
+      showByIndex(getIndexFromHash() - 1);
+    };
+    if(btnNext) btnNext.onclick = function(){
+      showByIndex(getIndexFromHash() + 1);
+    };
+
+    window.addEventListener('hashchange', function(){
+      showByIndex(getIndexFromHash());
+    });
+
+    // initial show
+    showByIndex(getIndexFromHash());
+  });
+})();
+</script>
+</body>
+</html>
