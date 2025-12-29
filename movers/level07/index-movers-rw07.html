@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Movers Reading and Writing - Level 7</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="movers-rw-style-update.css" id="mainStyles" rel="stylesheet"/>
+<script>
+  // CSS fallback chain (in case you have different stylesheet filenames in your folder)
+  (function () {
+    var link = document.getElementById('mainStyles');
+    if (!link) return;
+
+    var fallbacks = [
+      'movers-rw-style-update.css',
+      'movers-rw-style-part3-fixed.css',
+      'movers-rw-style.css',
+      'movers-rw-style.css' // final no-op
+    ];
+
+    var i = 0;
+    link.addEventListener('error', function () {
+      i++;
+      if (i < fallbacks.length) {
+        this.href = fallbacks[i];
+      }
+    });
+  })();
+</script>
+</head>
+<body>
+<div class="rw-shell">
+<!-- ===== HEADER ===== -->
+<header class="rw-header">
+<div class="rw-header-left">
+<h1>Movers Reading and Writing - Level 7</h1>
+</div>
+<!-- Đồng hồ 3D -->
+<div class="rw-timer-shell">
+<div class="rw-timer-circle">
+<span id="rwTimer">25:00</span>
+</div>
+</div>
+</header>
+<!-- ===== MAIN CONTENT ===== -->
+<main class="rw-main">
+<!-- ================= PART 1 (MOVERS) ================= -->
+<section class="rw-part movers-rw1" data-part="1" id="part1">
+<h2 class="rw-part-title">PART 1 – Look and read. Choose the correct words and write them on the lines.</h2>
+<div class="movers-rw1__layout">
+<div class="movers-rw1__left">
+<div class="movers-rw1__leftCard">
+<div class="movers-rw1__instruction">Look and read. Choose the correct words and write them on the lines. There is one example.</div>
+<div class="movers-rw1__grid">
+<div class="movers-rw1__pic" data-word="a shower">
+<img alt="a shower" src="Media/images/Movers- RW/a shower.png"/>
+<div class="movers-rw1__picInput movers-rw1__picLabel" data-word="a shower">a shower</div>
+</div>
+<div class="movers-rw1__pic" data-word="a funfair">
+<img alt="a funfair" src="Media/images/Movers- RW/a funfair.png"/>
+<div class="movers-rw1__picInput movers-rw1__picLabel" data-word="a funfair">a funfair</div>
+</div>
+<div class="movers-rw1__pic" data-word="a lift">
+<img alt="a lift" src="Media/images/Movers- RW/a lift.png"/>
+<div class="movers-rw1__picInput movers-rw1__picLabel" data-word="a lift">a lift</div>
+</div>
+<div class="movers-rw1__pic" data-word="a field">
+<img alt="a field" src="Media/images/Movers- RW/a field.png"/>
+<div class="movers-rw1__picInput movers-rw1__picLabel" data-word="a field">a field</div>
+</div>
+<div class="movers-rw1__pic" data-word="the moon">
+<img alt="the moon" src="Media/images/Movers- RW/the moon.png"/>
+<div class="movers-rw1__picInput movers-rw1__picLabel" data-word="the moon">the moon</div>
+</div>
+<div class="movers-rw1__pic" data-word="a lion">
+<img alt="a lion" src="Media/images/Movers- RW/a lion.png"/>
+<div class="movers-rw1__picInput movers-rw1__picLabel" data-word="a lion">a lion</div>
+</div>
+<div class="movers-rw1__pic" data-word="a snail">
+<img alt="a snail" src="Media/images/Movers- RW/a snail.png"/>
+<div class="movers-rw1__picInput movers-rw1__picLabel" data-word="a snail">a snail</div>
+</div>
+<div class="movers-rw1__pic" data-word="a balcony">
+<img alt="a balcony" src="Media/images/Movers- RW/a balcony.png"/>
+<div class="movers-rw1__picInput movers-rw1__picLabel" data-word="a balcony">a balcony</div>
+</div>
+</div>
+</div>
+</div>
+<div aria-hidden="true" class="movers-rw1__divider"></div>
+<div class="movers-rw1__right">
+<div class="movers-rw1__rightSticky">
+<div class="movers-rw1__rightCard">
+<div class="movers-rw1__example"><b>Example</b> You can sit outside on this part of a flat. <span class="movers-rw1__exampleFill">a balcony</span></div>
+<ol class="movers-rw1__qs">
+<li>This small animal can hide inside its shell. <input autocomplete="off" class="movers-rw1__blank" data-answer="a snail" type="text" value=""/></li>
+<li>This can take you up to another floor in a tall building. <input autocomplete="off" class="movers-rw1__blank" data-answer="a lift" type="text" value=""/></li>
+<li>You often see this and lots of stars in the sky at night. <input autocomplete="off" class="movers-rw1__blank" data-answer="the moon" type="text" value=""/></li>
+<li>Animals like sheep live here on a farm. <input autocomplete="off" class="movers-rw1__blank" data-answer="a field" type="text" value=""/></li>
+<li>You can stand and wash your hair and body in this. <input autocomplete="off" class="movers-rw1__blank" data-answer="a shower" type="text" value=""/></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= PART 2 (MOVERS) ================= -->
+<section class="rw-part movers-rw2" data-part="2" id="part2">
+<div class="movers-rw2__layout">
+<div class="movers-rw2__left">
+<div class="movers-rw2__leftSticky">
+<div class="movers-rw2__leftCard">
+<div class="movers-rw2__banner">PART 2: Read the text and choose the best answer.</div>
+<div class="movers-rw2__picFrame">
+<img alt="Part 2 picture" src="Media/images/Movers- RW/m3t1r1p2.png"/>
+</div>
+<div class="movers-rw2__example">
+<div class="movers-rw2__qText"><b>Jim: </b>I think this forest is a great place for a picnic.<br/><b>Paul: </b><br/></div>
+<div class="movers-rw2__options" data-answer="B" data-question="p2_ex">
+<label class="movers-rw2__opt">
+<span class="movers-rw2__optLabel">A.</span>
+<span class="movers-rw2__optText">Well done!</span>
+<input name="p2_ex" type="radio" value="a"/>
+<span aria-hidden="true" class="movers-rw2__dot"></span>
+</label>
+<label class="movers-rw2__opt">
+<span class="movers-rw2__optLabel">B.</span>
+<span class="movers-rw2__optText">So do I!</span>
+<input name="p2_ex" type="radio" value="b"/>
+<span aria-hidden="true" class="movers-rw2__dot"></span>
+</label>
+<label class="movers-rw2__opt">
+<span class="movers-rw2__optLabel">C.</span>
+<span class="movers-rw2__optText">Here you are!</span>
+<input name="p2_ex" type="radio" value="c"/>
+<span aria-hidden="true" class="movers-rw2__dot"></span>
+</label>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div aria-hidden="true" class="movers-rw2__divider"></div>
+<div class="movers-rw2__right">
+<div class="movers-rw2__rightScroll">
+<div class="movers-rw2__qaBlock" data-answer="C" data-question="p2q1">
+<div class="movers-rw2__qText"><b>Jim: </b>I’m hungry now. Are you?<br/><b>Paul: </b><br/></div>
+<div class="movers-rw2__options" data-answer="C">
+<label class="movers-rw2__opt">
+<span class="movers-rw2__optLabel">A.</span>
+<span class="movers-rw2__optText">Yes, please.</span>
+<input name="p2q1" type="radio" value="a"/>
+<span aria-hidden="true" class="movers-rw2__dot"></span>
+</label>
+<label class="movers-rw2__opt">
+<span class="movers-rw2__optLabel">B.</span>
+<span class="movers-rw2__optText">I know it is.</span>
+<input name="p2q1" type="radio" value="b"/>
+<span aria-hidden="true" class="movers-rw2__dot"></span>
+</label>
+<label class="movers-rw2__opt">
+<span class="movers-rw2__optLabel">C.</span>
+<span class="movers-rw2__optText">Yes, I am.</span>
+<input name="p2q1" type="radio" value="c"/>
+<span aria-hidden="true" class="movers-rw2__dot"></span>
+</label>
+</div>
+</div>
+<div class="movers-rw2__qaBlock" data-answer="B" data-question="p2q2">
+<div class="movers-rw2__qText"><b>Jim: </b>Let’s stop and have our picnic between these two trees<br/><b>Paul: </b><br/></div>
+<div class="movers-rw2__options" data-answer="B">
+<label class="movers-rw2__opt">
+<span class="movers-rw2__optLabel">A.</span>
+<span class="movers-rw2__optText">That’s a lot!</span>
+<input name="p2q2" type="radio" value="a"/>
+<span aria-hidden="true" class="movers-rw2__dot"></span>
+</label>
+<label class="movers-rw2__opt">
+<span class="movers-rw2__optLabel">B.</span>
+<span class="movers-rw2__optText">Good idea!</span>
+<input name="p2q2" type="radio" value="b"/>
+<span aria-hidden="true" class="movers-rw2__dot"></span>
+</label>
+<label class="movers-rw2__opt">
+<span class="movers-rw2__optLabel">C.</span>
+<span class="movers-rw2__optText">See you!</span>
+<input name="p2q2" type="radio" value="c"/>
+<span aria-hidden="true" class="movers-rw2__dot"></span>
+</label>
+</div>
+</div>
+<div class="movers-rw2__qaBlock" data-answer="A" data-question="p2q3">
+<div class="movers-rw2__qText"><b>Jim: </b>What kind of food did you bring, Paul?<br/><b>Paul: </b><br/></div>
+<div class="movers-rw2__options" data-answer="A">
+<label class="movers-rw2__opt">
+<span class="movers-rw2__optLabel">A.</span>
+<span class="movers-rw2__optText">Salad and cold meat.</span>
+<input name="p2q3" type="radio" value="a"/>
+<span aria-hidden="true" class="movers-rw2__dot"></span>
+</label>
+<label class="movers-rw2__opt">
+<span class="movers-rw2__optLabel">B.</span>
+<span class="movers-rw2__optText">Make a huge apple pie!</span>
+<input name="p2q3" type="radio" value="b"/>
+<span aria-hidden="true" class="movers-rw2__dot"></span>
+</label>
+<label class="movers-rw2__opt">
+<span class="movers-rw2__optLabel">C.</span>
+<span class="movers-rw2__optText">Thanks for the sandwich.</span>
+<input name="p2q3" type="radio" value="c"/>
+<span aria-hidden="true" class="movers-rw2__dot"></span>
+</label>
+</div>
+</div>
+<div class="movers-rw2__qaBlock" data-answer="C" data-question="p2q4">
+<div class="movers-rw2__qText"><b>Jim: </b>Did you bring something to drink, too?<br/><b>Paul: </b><br/></div>
+<div class="movers-rw2__options" data-answer="C">
+<label class="movers-rw2__opt">
+<span class="movers-rw2__optLabel">A.</span>
+<span class="movers-rw2__optText">I like water more.</span>
+<input name="p2q4" type="radio" value="a"/>
+<span aria-hidden="true" class="movers-rw2__dot"></span>
+</label>
+<label class="movers-rw2__opt">
+<span class="movers-rw2__optLabel">B.</span>
+<span class="movers-rw2__optText">We could do that.</span>
+<input name="p2q4" type="radio" value="b"/>
+<span aria-hidden="true" class="movers-rw2__dot"></span>
+</label>
+<label class="movers-rw2__opt">
+<span class="movers-rw2__optLabel">C.</span>
+<span class="movers-rw2__optText">Only some fruit juice.</span>
+<input name="p2q4" type="radio" value="c"/>
+<span aria-hidden="true" class="movers-rw2__dot"></span>
+</label>
+</div>
+</div>
+<div class="movers-rw2__qaBlock" data-answer="A" data-question="p2q5">
+<div class="movers-rw2__qText"><b>Jim: </b>Where are the plates and cups?<br/><b>Paul: </b><br/></div>
+<div class="movers-rw2__options" data-answer="A">
+<label class="movers-rw2__opt">
+<span class="movers-rw2__optLabel">A.</span>
+<span class="movers-rw2__optText">They’re inside the smaller bag.</span>
+<input name="p2q5" type="radio" value="a"/>
+<span aria-hidden="true" class="movers-rw2__dot"></span>
+</label>
+<label class="movers-rw2__opt">
+<span class="movers-rw2__optLabel">B.</span>
+<span class="movers-rw2__optText">When Mum gave them to me.</span>
+<input name="p2q5" type="radio" value="b"/>
+<span aria-hidden="true" class="movers-rw2__dot"></span>
+</label>
+<label class="movers-rw2__opt">
+<span class="movers-rw2__optLabel">C.</span>
+<span class="movers-rw2__optText">Yes, but they aren’t here.</span>
+<input name="p2q5" type="radio" value="c"/>
+<span aria-hidden="true" class="movers-rw2__dot"></span>
+</label>
+</div>
+</div>
+<div class="movers-rw2__qaBlock" data-answer="B" data-question="p2q6">
+<div class="movers-rw2__qText"><b>Jim: </b>What shall we do after our picnic?<br/><b>Paul: </b><br/></div>
+<div class="movers-rw2__options" data-answer="B">
+<label class="movers-rw2__opt">
+<span class="movers-rw2__optLabel">A.</span>
+<span class="movers-rw2__optText">There’s one by the lake.</span>
+<input name="p2q6" type="radio" value="a"/>
+<span aria-hidden="true" class="movers-rw2__dot"></span>
+</label>
+<label class="movers-rw2__opt">
+<span class="movers-rw2__optLabel">B.</span>
+<span class="movers-rw2__optText">Let’s climb a tree.</span>
+<input name="p2q6" type="radio" value="b"/>
+<span aria-hidden="true" class="movers-rw2__dot"></span>
+</label>
+<label class="movers-rw2__opt">
+<span class="movers-rw2__optLabel">C.</span>
+<span class="movers-rw2__optText">A comic or my phone.</span>
+<input name="p2q6" type="radio" value="c"/>
+<span aria-hidden="true" class="movers-rw2__dot"></span>
+</label>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= PART 3 (MOVERS) ================= -->
+<section class="rw-part movers-rw3" data-part="3" id="part3">
+<div class="movers-rw3__layout">
+<div class="movers-rw3__left">
+<div class="movers-rw3__leftHeader">PART 3: Read the story. Choose a word from the box. Write the correct word next to numbers 1–5. There is one example.</div>
+<div class="movers-rw3__leftScroll">
+<div class="movers-rw3__grid">
+<div class="movers-rw3__pic" data-word="hospital">
+<img alt="hospital" src="Media/images/Movers- RW/01.png"/>
+<div class="movers-rw3__picLabel">hospital</div>
+</div>
+<div class="movers-rw3__pic" data-word="towel">
+<img alt="towel" src="Media/images/Movers- RW/02.png"/>
+<div class="movers-rw3__picLabel">towel</div>
+</div>
+<div class="movers-rw3__pic" data-word="net">
+<img alt="net" src="Media/images/Movers- RW/03.png"/>
+<div class="movers-rw3__picLabel">net</div>
+</div>
+<div class="movers-rw3__pic" data-word="waves">
+<img alt="waves" src="Media/images/Movers- RW/04.png"/>
+<div class="movers-rw3__picLabel">waves</div>
+</div>
+<div class="movers-rw3__pic" data-word="drop">
+<img alt="drop" src="Media/images/Movers- RW/05.png"/>
+<div class="movers-rw3__picLabel">drop</div>
+</div>
+<div class="movers-rw3__pic" data-word="downstairs">
+<img alt="downstairs" src="Media/images/Movers- RW/06.png"/>
+<div class="movers-rw3__picLabel">downstairs</div>
+</div>
+<div class="movers-rw3__pic" data-word="washed">
+<img alt="washed" src="Media/images/Movers- RW/07.png"/>
+<div class="movers-rw3__picLabel">washed</div>
+</div>
+<div class="movers-rw3__pic" data-word="catch">
+<img alt="catch" src="Media/images/Movers- RW/08.png"/>
+<div class="movers-rw3__picLabel">catch</div>
+</div>
+<div class="movers-rw3__pic" data-word="quickly">
+<img alt="quickly" src="Media/images/Movers- RW/09.png"/>
+<div class="movers-rw3__picLabel">quickly</div>
+</div>
+</div>
+</div>
+</div>
+<div aria-hidden="true" class="movers-rw3__divider"></div>
+<div class="movers-rw3__right">
+<div class="movers-rw3__rightCard">
+<div class="movers-rw3__story">
+    My grandmother hurt her foot last Friday. She wanted a doctor to look at it. I went with her to the <b>hospital</b>.<br/><br/>
+    The doctor took off Grandma’s shoe and looked at her foot very carefully.<br/>
+    ‘How did you hurt it?’ he asked. ‘Did you fall 
+    <span class="movers-rw3__blankWrap">(1) <input autocomplete="off" class="movers-rw3__blank" data-answer="downstairs" type="text"/></span> ?’<br/>‘No,’ said Grandma.<br/><br/>‘Did you have to run to <span class="movers-rw3__blankWrap">(2) <input autocomplete="off" class="movers-rw3__blank" data-answer="catch" type="text"/></span> a bus?’ he asked.<br/>‘No, she didn’t do that,’ I said.<br/><br/>‘Well, did you get out of bed too <span class="movers-rw3__blankWrap">(3) <input autocomplete="off" class="movers-rw3__blank" data-answer="quickly" type="text"/></span> ?’ the doctor asked.<br/><br/>‘No,’ said my grandmother. ‘I hurt it when I scored a goal.’<br/>‘It went into the back of the <span class="movers-rw3__blankWrap">(4) <input autocomplete="off" class="movers-rw3__blank" data-answer="net" type="text"/></span> ! She’s a great football player,’ I told him.<br/><br/>The doctor laughed. ‘Well, don’t worry. It’s all right,’ he said. ‘But you must only watch football this weekend! You mustn’t play it!’<br/><br/>‘Can I go swimming in the sea?’ Grandma asked. ‘I love jumping in the <span class="movers-rw3__blankWrap">(5) <input autocomplete="off" class="movers-rw3__blank" data-answer="waves" type="text"/></span> .’<br/>‘No!’ the doctor answered.<br/><br/></div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= PART 4 (MOVERS) ================= -->
+<section class="rw-part movers-rw4" data-part="4" id="part4">
+<h2 class="rw-part-title movers-rw4__srTitle">Donkeys and horses</h2>
+<div class="movers-rw4__layout">
+<aside aria-label="Part 4 word box" class="movers-rw4__left">
+<div class="movers-rw4__leftCard">
+<div class="movers-rw4__badge">PART 4</div>
+<div aria-label="Word box" class="movers-rw4__wordBox" role="table"><div class="movers-rw4__row movers-rw4__rowExample"><div class="movers-rw4__num">Ex</div><div class="movers-rw4__cell movers-rw4__cellSelected">from</div><div class="movers-rw4__cell">for</div><div class="movers-rw4__cell">with</div></div><div class="movers-rw4__row"><div class="movers-rw4__num">1</div><div class="movers-rw4__cell movers-rw4__cellSelected">more</div><div class="movers-rw4__cell">worse</div><div class="movers-rw4__cell">many</div></div><div class="movers-rw4__row"><div class="movers-rw4__num">2</div><div class="movers-rw4__cell">Why</div><div class="movers-rw4__cell movers-rw4__cellSelected">When</div><div class="movers-rw4__cell">What</div></div><div class="movers-rw4__row"><div class="movers-rw4__num">3</div><div class="movers-rw4__cell">long</div><div class="movers-rw4__cell movers-rw4__cellSelected">longer</div><div class="movers-rw4__cell">longest</div></div><div class="movers-rw4__row"><div class="movers-rw4__num">4</div><div class="movers-rw4__cell movers-rw4__cellSelected">no</div><div class="movers-rw4__cell">not</div><div class="movers-rw4__cell">nothing</div></div><div class="movers-rw4__row"><div class="movers-rw4__num">5</div><div class="movers-rw4__cell movers-rw4__cellSelected">their</div><div class="movers-rw4__cell">them</div><div class="movers-rw4__cell">theirs</div></div></div>
+<div class="movers-rw4__picFrame">
+<img alt="The jungle" src="Media/images/Movers- RW/m3t1r1p4.png"/>
+</div>
+</div>
+</aside>
+<div aria-hidden="true" class="movers-rw4__divider"></div>
+<section aria-label="Part 4 text" class="movers-rw4__right">
+<div class="movers-rw4__rightCard">
+<p class="movers-rw4__para"><b>Example:</b> How are donkeys different <u>from</u> horses?<br/><br/>1 Donkeys move <span class="movers-rw4__blankWrap">1 <input autocomplete="off" class="movers-rw4__blank" data-answer="more" type="text"/></span> slowly than horses, they don’t do dangerous things like jumping and they can’t swim. Horses can.<br/><br/>2 <span class="movers-rw4__blankWrap">2 <input autocomplete="off" class="movers-rw4__blank" data-answer="when" type="text"/></span> a donkey is frightened, it doesn’t move. But a horse runs!<br/><br/>Donkeys and horses have different ears and tails, too. A donkey has <span class="movers-rw4__blankWrap">3 <input autocomplete="off" class="movers-rw4__blank" data-answer="longer" type="text"/></span> ears than a horse, and a tail which is like a cow’s.<br/><br/>Most horses enjoy eating grass and live in places where it grows. Donkeys can live in hot, dry places where there is <span class="movers-rw4__blankWrap">4 <input autocomplete="off" class="movers-rw4__blank" data-answer="no" type="text"/></span> grass.<br/><br/>But <span class="movers-rw4__blankWrap">5 <input autocomplete="off" class="movers-rw4__blank" data-answer="their" type="text"/></span> colours aren’t very different. Most horses and donkeys are white, black, brown or grey.</p>
+</div>
+</section>
+</div>
+</section>
+<section class="rw-part movers-rw5" data-part="5" id="part5">
+<h2 class="rw-part-title movers-rw5__srTitle">PART 5 – Look, read and write.</h2>
+<div class="movers-rw5__layout">
+<!-- LEFT: header + 1 picture (sticky) -->
+<aside aria-label="Part 5 left panel" class="movers-rw5__left">
+<div class="movers-rw5__leftSticky">
+<div class="movers-rw5__leftCard">
+<div class="movers-rw5__leftHeader">
+<div class="movers-rw5__badge">PART 5</div>
+<div class="movers-rw5__heading">
+              Look at the pictures and read the story. Write some words to complete the sentences about the story.
+              You can use 1, 2 or 3 words.
+            </div>
+</div>
+<div class="movers-rw5__leftPictureFrame">
+<!-- Giữ nguyên link ảnh -->
+<img alt="Part 5 picture" src="Media/images/Movers- RW/m3t1r1p5.png"/>
+</div>
+</div>
+</div>
+</aside>
+<!-- DIVIDER -->
+<div aria-hidden="true" class="movers-rw5__divider"></div>
+<!-- RIGHT: scroll stories -->
+<section aria-label="Part 5 stories" class="movers-rw5__right">
+<div class="movers-rw5__rightCard">
+<!-- Story block 1 -->
+<article class="movers-rw5__storyBlock">
+<div class="movers-rw5__storyTop">
+<div class="movers-rw5__storyPicFrame">
+<img alt="Story picture 1" src="Media/images/Movers- RW/m3t1r1p5.png"/>
+</div>
+<div class="movers-rw5__storyText"><p style="text-align:center;"><b><u>Where’s our car?</u></b></p>
+<p>Dad and Zoe live in the city. Last Saturday, they drove into the big car park under the shopping centre. Then they walked to the sports shop. Zoe needed a new swimsuit and she found one that was really pretty. Dad bought a new tennis racket there, too.</p>
+<p>Then they had lunch in a nice café.</p>
+<p><b>Examples</b></p>
+<p>Zoe and her father’s home is in the <span class="movers-rw5__blankWrap"><input autocomplete="off" class="movers-rw5__blank" data-answer="city" type="text" value="city"/></span>.</p>
+<p>Zoe and Dad went to the <span class="movers-rw5__blankWrap"><input autocomplete="off" class="movers-rw5__blank" data-answer="shopping centre" type="text" value="shopping centre"/></span> by car.</p>
+<p><b>Questions</b></p>
+<p>1) Zoe found a pretty <span class="movers-rw5__blankWrap"><input autocomplete="off" class="movers-rw5__blank" data-answer="swimsuit/a swimsuit/new swimsuit/a new swimsuit" type="text"/></span> in the sports shop.</p>
+<p>2) They went to a <span class="movers-rw5__blankWrap"><input autocomplete="off" class="movers-rw5__blank" data-answer="cafe/café/a cafe/a café/nice cafe/nice café/a nice cafe/a nice café" type="text"/></span> for their lunch.</p></div>
+</div>
+</article>
+<!-- Story block 2 -->
+<article class="movers-rw5__storyBlock">
+<div class="movers-rw5__storyTop">
+<div class="movers-rw5__storyPicFrame">
+<img alt="Story picture 2" src="Media/images/Movers- RW/m3t1r1p5_1.png"/>
+</div>
+<div class="movers-rw5__storyText"><p>They had pasta with tomato sauce. Then they bought lots of vegetables from the supermarket, and got some new books from the library. They walked around the pet shop, too. When Zoe smiled at a blue parrot, it said ‘Hello!’ to her.</p>
+<p>At the end of the day, they had lots of bags to carry back to the car park.</p>
+<p>3) Zoe had some <span class="movers-rw5__blankWrap"><input autocomplete="off" class="movers-rw5__blank" data-answer="tomato sauce/some tomato sauce" type="text"/></span> with her pasta.</p>
+<p>4) After they went to the supermarket and the <span class="movers-rw5__blankWrap"><input autocomplete="off" class="movers-rw5__blank" data-answer="library/the library" type="text"/></span>, Zoe and Dad went into a pet shop.</p>
+<p>5) Zoe and Dad had to carry <span class="movers-rw5__blankWrap"><input autocomplete="off" class="movers-rw5__blank" data-answer="bags/lots of bags/many bags" type="text"/></span> back to the car park.</p></div>
+</div>
+</article>
+<!-- Story block 3 -->
+<article class="movers-rw5__storyBlock">
+<div class="movers-rw5__storyTop">
+<div class="movers-rw5__storyPicFrame">
+<img alt="Story picture 3" src="Media/images/Movers- RW/m3t1r1p5_2.png"/>
+</div>
+<div class="movers-rw5__storyText"><p>‘Where’s our car?’ Zoe asked.</p>
+<p>‘I don’t know!’ said Dad. ‘There are hundreds and hundreds of cars here now!’</p>
+<p>Zoe and Dad walked up and down the car park but they couldn’t find it.</p>
+<p>‘Look! There’s the blue parrot again! It’s on the top of one of the cars!’ Zoe said.</p>
+<p>‘That’s OUR car. Hooray!’ Dad answered. ‘What a clever parrot!’</p>
+<p>‘Happy to help!’ said the parrot and then it flew off.</p>
+<p>‘Did the parrot really say that?’ Mum asked when they got home.</p>
+<p>‘Yes!’ Zoe laughed.</p>
+<p>6) Zoe and Dad <span class="movers-rw5__blankWrap"><input autocomplete="off" class="movers-rw5__blank" data-answer="couldn&#39;t find/could not find/didn&#39;t find" type="text"/></span> their car because there were lots of cars in the car park.</p>
+<p>7) The <span class="movers-rw5__blankWrap"><input autocomplete="off" class="movers-rw5__blank" data-answer="parrot/blue parrot/the blue parrot" type="text"/></span> was on the roof of Dad’s car and said ‘Happy to help!’ when they found it!</p></div>
+</div>
+</article>
+<div class="movers-rw5__note"></div>
+</div>
+</section>
+</div>
+</section>
+<!-- ====================== PART 6 (MOVERS) ====================== -->
+<section class="rw-part movers-rw6" data-part="6" id="part6">
+<h2 class="movers-rw6__srTitle">PART 6</h2>
+<div class="movers-rw6__layout">
+<!-- LEFT: header + picture + examples (fixed block) -->
+<div class="movers-rw6__left">
+<div class="movers-rw6__leftCard">
+<div class="movers-rw6__leftHeader">
+<div class="movers-rw6__partTitle">PART 6: Look and Read &amp; Write.</div>
+</div>
+<div class="movers-rw6__leftBody">
+<div class="movers-rw6__imgWrap">
+<!-- Giữ nguyên link ảnh -->
+<img alt="Part 6 picture" src="Media/images/Movers- RW/m3t1r1p6.png"/>
+</div>
+<div class="movers-rw6__examples">
+        <div class="movers-rw6__examplesTitle">Examples</div>
+        <div class="movers-rw6__exampleLine">These three pirates are on an <span class="movers-rw6__exampleAnswer">island</span></div>
+        <div class="movers-rw6__exampleLine"><span class="movers-rw6__exampleQ">What is the blond pirate holding?</span><span class="movers-rw6__exampleAnswer">an old map</span></div></div>
+      </div>
+</div>
+</div>
+<!-- DIVIDER -->
+<div aria-hidden="true" class="movers-rw6__divider"></div>
+<!-- RIGHT: scroll questions -->
+      <div class="movers-rw6__right">
+<div class="movers-rw6__rightScroll">
+<div class="movers-rw6__block">
+<div class="movers-rw6__blockTitle">Complete the sentences.</div>
+<ol class="movers-rw6__list">
+          <li>Someone is sleeping between the
+            <input class="movers-rw6__blank" data-answer="two trees/the two trees/trees/palm trees/the palm trees/the two palm trees" type="text"/>
+          </li>
+          <li>The sun is behind the
+            <input class="movers-rw6__blank" data-answer="cloud/the cloud/a cloud/clouds/the clouds" type="text"/>
+          </li>
+
+          <div class="movers-rw6__blockTitle">Answer the questions.</div>
+
+          <li start="3">What colour are the sails?
+            <input class="movers-rw6__blank" data-answer="red" type="text"/>
+          </li>
+          <li>What is the whale looking at?
+            <input class="movers-rw6__blank" data-answer="the pirates/the pirate/the blond pirate/the birds/birds" type="text"/>
+          </li>
+
+          <div class="movers-rw6__blockTitle">Now write two sentences about the picture.</div>
+
+          <li class="wide" start="5">
+            <input class="movers-rw6__blank wide" data-answer="There are two shells on the beach/Two shells are on the beach/There are shells on the beach" type="text"/>
+          </li>
+          <li class="wide">
+            <input class="movers-rw6__blank wide" data-answer="A bird is flying above the waterfall/A bird is flying over the waterfall/There is a bird above the waterfall" type="text"/>
+          </li>
+        </ol>
+</div>
+<div class="movers-rw6__block">
+<div class="movers-rw6__blockTitle">Answer the questions.</div>
+<ol class="movers-rw6__list" start="3"><li>What is on the roof of the bus? <input autocomplete="off" class="movers-rw6__blank" data-answer="a bird/bird" type="text"/></li><li>What is the woman carrying? <input autocomplete="off" class="movers-rw6__blank" data-answer="a handbag/handbag/a bag/bag" type="text"/></li><div class="movers-rw6__blockTitle" style="margin-top:12px;">Now write two sentences about the picture.</div><li><input autocomplete="off" class="movers-rw6__blank movers-rw6__blankWide" data-answer="It's raining/It is raining/There is a rainbow/There’s a rainbow" type="text"/></li><li><input autocomplete="off" class="movers-rw6__blank movers-rw6__blankWide" data-answer="There are two children on the bus/Two children are on the bus/The bus is red" type="text"/></li></ol>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- ===== FOOTER: chỉ còn 2 nút chuyển trang ===== -->
+<footer class="rw-footer">
+<div class="rw-footer-inner">
+<button class="rw-nav-btn" id="btnPrev" type="button">
+<span class="rw-arrow">‹</span>
+</button>
+<button class="rw-nav-btn" id="btnNext" type="button">
+<span class="rw-arrow">›</span>
+</button>
+</div>
+</footer>
+<!-- NÚT NỘP TOÀN BÀI – chỉ hiện ở Part 5 -->
+<div class="rw-submit-row">
+<button class="rw-submit-btn" id="btnSubmitRW" type="button">
+        Nộp toàn bài
+      </button>
+</div>
+</div> <!-- /.rw-shell -->
+<!-- POPUP XÁC NHẬN NỘP BÀI -->
+<div class="rw-confirm-overlay" id="confirmSubmit">
+<div class="rw-confirm-modal">
+<button class="rw-confirm-close" type="button">×</button>
+<div class="rw-confirm-title">THÔNG BÁO</div>
+<p class="rw-confirm-message">
+        Bạn có chắc chắn muốn nộp bài thi không?
+      </p>
+<button class="rw-confirm-submit" type="button">NỘP BÀI</button>
+</div>
+</div>
+<!-- POPUP KẾT QUẢ KHIÊN (READING & WRITING) -->
+<div class="shield-overlay hidden" id="shieldResult">
+<div class="shield-modal">
+<button class="shield-close" type="button">×</button>
+<h2>Chúc mừng bạn đã đạt được</h2>
+<div class="shield-icons" id="shieldIcons"></div>
+<p class="shield-count"><span id="shieldCount">0</span> khiên</p>
+</div>
+</div>
+<!-- Âm thanh chúc mừng khi hiện khiên -->
+<audio id="shieldSound" preload="auto" src="Media/audio/congrats.mp3"></audio>
+<script src="movers-rw-script.js"></script>
+</body>
+</html>
